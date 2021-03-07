@@ -1,6 +1,10 @@
 import './main.css';
 import { Elm } from './Main.elm';
 import * as serviceWorker from './serviceWorker';
+import 'jquery'
+import 'popper.js'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap'
 
 Elm.Main.init({
   node: document.getElementById('root')
