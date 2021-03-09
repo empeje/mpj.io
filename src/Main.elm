@@ -95,7 +95,8 @@ viewTalks : Html Msg
 viewTalks =
     let
         data =
-            [ ( "https://www.youtube.com/watch?v=YXOCGFzOtPo", "2021. KulWeekend #3 Markov Chain Bots" )
+            [ ( "https://www.conf42.com/Java_2021_Abdurrachman_Mappuji_typesafe_web_development_eta", "2021. Conf42 Java. Enjoy Typesafe Web Development with Eta (Upcoming)" )
+            , ( "https://www.youtube.com/watch?v=YXOCGFzOtPo", "2021. KulWeekend #3 Markov Chain Bots" )
             , ( "https://www.youtube.com/watch?v=4wuN2UOVSp4", "2020. KulWeekend #2 Data Cleaning" )
             , ( "https://www.youtube.com/watch?v=n-Em6-Xt4Co", "2020. KulWeekend #1 Introduction to Python & Web Scrapping" )
             , ( "https://www.youtube.com/watch?v=HOkyc23ZKE4", "2020. KulTalks. Build and Deploy Your First Website (In Bahasa)" )
