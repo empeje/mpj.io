@@ -43,6 +43,7 @@ view model =
         , viewPublications
         , viewTalks
         , viewCompanies
+        , viewInvestments
         , viewFooter
         ]
 
@@ -125,6 +126,21 @@ viewCompanies =
     List.append
         [ h2 [] [ text "Companies" ]
         , p [] [ text "I really interested in entrepreneurial activities, and in 2020 despite the pandemic, I manage to start one. Here are some companies I actively working on" ]
+        ]
+        (viewList data)
+        |> div []
+
+
+viewInvestments : Html Msg
+viewInvestments =
+    let
+        data =
+            [ ( "https://gumroad.com/", "Gumroad" )
+            ]
+    in
+    List.append
+        [ h2 [] [ text "Investments" ]
+        , p [] [ text "I invest in business from time to time, my principle on investing is value investing, and when I do, I value-add my investment through evangelism and constructive feedback. Here are some business I have invested." ]
         ]
         (viewList data)
         |> div []
