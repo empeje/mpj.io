@@ -135,7 +135,7 @@ viewInvestments : Html Msg
 viewInvestments =
     let
         data =
-            [ ( "https://gumroad.com/", "Gumroad" )
+            [ ( "https://republic.co/abdurrachman-mappuji", "Gumroad" )
             ]
     in
     List.append
