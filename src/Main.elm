@@ -136,6 +136,7 @@ viewInvestments =
     let
         data =
             [ ( "https://republic.co/abdurrachman-mappuji", "Gumroad" )
+            , ( "https://wefunder.com/abdurrachmanmappuji", "Kyndoo" )
             ]
     in
     List.append
