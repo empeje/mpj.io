@@ -137,6 +137,9 @@ viewInvestments =
         data =
             [ ( "https://republic.co/abdurrachman-mappuji", "Gumroad" )
             , ( "https://wefunder.com/abdurrachmanmappuji", "Kyndoo" )
+            , ( "https://wefunder.com/abdurrachmanmappuji", "Airthium (YC S17)" )
+            , ( "https://wefunder.com/abdurrachmanmappuji", "InnaMed (YC W17)" )
+            , ( "https://wefunder.com/abdurrachmanmappuji", "Legion M" )
             ]
     in
     List.append
