@@ -140,6 +140,7 @@ viewInvestments =
             , ( "https://wefunder.com/abdurrachmanmappuji", "Airthium (YC S17)" )
             , ( "https://wefunder.com/abdurrachmanmappuji", "InnaMed (YC W17)" )
             , ( "https://wefunder.com/abdurrachmanmappuji", "Legion M" )
+            , ( "https://wefunder.com/abdurrachmanmappuji", "LPPFusion" )
             ]
     in
     List.append
