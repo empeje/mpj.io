@@ -96,7 +96,8 @@ viewTalks : Html Msg
 viewTalks =
     let
         data =
-            [ ( "https://youtu.be/lSguqR93rjs?t=685", "2021. Conf42 Java. Enjoy Typesafe Web Development with Eta (Upcoming)" )
+            [ ( "https://www.webdirections.org/lazyload/speakers/abdurrachman-mappuji.php", "2021. Web Directions Lazy Load. How Russian Doll Caching Can Improve Server Side Rendering (Upcoming)" )
+            , ( "https://youtu.be/lSguqR93rjs?t=685", "2021. Conf42 Java. Enjoy Typesafe Web Development with Eta (Upcoming)" )
             , ( "https://www.youtube.com/watch?v=YXOCGFzOtPo", "2021. KulWeekend #3 Markov Chain Bots" )
             , ( "https://www.youtube.com/watch?v=4wuN2UOVSp4", "2020. KulWeekend #2 Data Cleaning" )
             , ( "https://www.youtube.com/watch?v=n-Em6-Xt4Co", "2020. KulWeekend #1 Introduction to Python & Web Scrapping" )
