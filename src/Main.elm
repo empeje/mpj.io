@@ -1,7 +1,7 @@
 module Main exposing (..)
 
 import Browser
-import Html exposing (Html, a, div, h1, h2, img, p, text)
+import Html exposing (Html, a, div, h1, h2, img, li, p, text, ul)
 import Html.Attributes exposing (class, href, src, target)
 
 
@@ -50,10 +50,21 @@ view model =
 
 viewHeader : Html Msg
 viewHeader =
-    div []
-        [ img [ class "logo", src "https://github.com/empeje.png" ] []
-        , h1 [] [ text "Welcome!" ]
-        , p [] [ text "I'm mpj, a software engineer and tech creator living in Indonesia. I'm a big fan of Rocket Raccoon." ]
+    div [ class "header" ]
+        [ viewNav
+        , h1 [] [ text "Towards entrepreneurial and investment wisdom" ]
+        , p [] [ text "by MPJ (not Michael Jordan)" ]
+        , img [ class "logo", src "https://github.com/empeje.png" ] []
+        , p [] [ text "I'm a software engineer and tech creator living in Indonesia. I'm a big fan of Rocket Raccoon." ]
+        ]
+
+
+viewNav : Html Msg
+viewNav =
+    div [ class "navigation" ]
+        [ ul []
+            [ li [] [ a [ href "https://calendly.com/a-mappuji/mentoring?month=2021-04" ] [ text "Mentor Me!" ] ]
+            ]
         ]
 
 
