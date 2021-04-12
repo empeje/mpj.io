@@ -132,7 +132,7 @@ viewCompanies =
     let
         data =
             [ ( "https://kulkul.tech/", "Kulkul Tech" )
-            , ( "https://084soft.com/", "084Soft" )
+            , ( "https://084soft.com/", "084Soft (Closed)" )
             ]
     in
     List.append
@@ -153,6 +153,7 @@ viewInvestments =
             , ( "https://wefunder.com/abdurrachmanmappuji", "InnaMed (YC W17)" )
             , ( "https://wefunder.com/abdurrachmanmappuji", "Legion M" )
             , ( "https://wefunder.com/abdurrachmanmappuji", "LPPFusion" )
+            , ( "https://wefunder.com/abdurrachmanmappuji", "Vin Social" )
             ]
     in
     List.append
