@@ -148,12 +148,12 @@ viewInvestments =
     let
         data =
             [ ( "https://republic.co/abdurrachman-mappuji", "Gumroad" )
-            , ( "https://wefunder.com/abdurrachmanmappuji", "Kyndoo" )
-            , ( "https://wefunder.com/abdurrachmanmappuji", "Airthium (YC S17)" )
-            , ( "https://wefunder.com/abdurrachmanmappuji", "InnaMed (YC W17)" )
-            , ( "https://wefunder.com/abdurrachmanmappuji", "Legion M" )
-            , ( "https://wefunder.com/abdurrachmanmappuji", "LPPFusion" )
-            , ( "https://wefunder.com/abdurrachmanmappuji", "Vin Social" )
+            , ( "https://kyndoo.com/", "Kyndoo" )
+            , ( "https://www.airthium.com/", "Airthium (YC S17)" )
+            , ( "https://www.innamed.com/", "InnaMed (YC W17)" )
+            , ( "https://legionm.com/", "Legion M" )
+            , ( "https://lppfusion.com/", "LPPFusion" )
+            , ( "https://vinsocial.co/", "Vin Social" )
             ]
     in
     List.append
