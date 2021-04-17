@@ -63,7 +63,8 @@ viewNav : Html Msg
 viewNav =
     div [ class "navigation" ]
         [ ul []
-            [ li [] [ a [ href "https://calendly.com/a-mappuji/mentoring?month=2021-04" ] [ text "Mentor Me!" ] ]
+            [ li [] [ linkNewTab [ href "https://calendly.com/a-mappuji/mentoring" ] [ text "Mentoring" ] ]
+            , li [] [ linkNewTab [ href "https://gumroad.com/mpj" ] [ text "Newsletter" ] ]
             ]
         ]
 
