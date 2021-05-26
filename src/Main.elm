@@ -155,6 +155,7 @@ viewInvestments =
             , ( "https://legionm.com/", "Legion M" )
             , ( "https://lppfusion.com/", "LPPFusion" )
             , ( "https://vinsocial.co/", "Vin Social" )
+            , ( "https://en.aktpictures.com/", "Akt Pictures - When I Was a Human" )
             ]
     in
     List.append
