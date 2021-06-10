@@ -156,6 +156,7 @@ viewInvestments =
             , ( "https://lppfusion.com/", "LPPFusion" )
             , ( "https://vinsocial.co/", "Vin Social" )
             , ( "https://en.aktpictures.com/", "Akt Pictures - When I Was a Human" )
+            , ( "https://arc.dev/", "Arc (Previously Codementor)" )
             ]
     in
     List.append
