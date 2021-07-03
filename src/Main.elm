@@ -65,6 +65,7 @@ viewNav =
         [ ul []
             [ li [] [ linkNewTab [ href "https://calendly.com/a-mappuji/mentoring" ] [ text "Mentoring" ] ]
             , li [] [ linkNewTab [ href "https://gumroad.com/mpj" ] [ text "Newsletter" ] ]
+            , li [] [ linkNewTab [ href "https://blog.mpj.io" ] [ text "Blog" ] ]
             ]
         ]
 
