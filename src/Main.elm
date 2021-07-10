@@ -1,8 +1,8 @@
 module Main exposing (..)
 
 import Browser
-import Html exposing (Html, a, div, h1, h2, img, li, p, text, ul)
-import Html.Attributes exposing (class, href, src, target)
+import Html exposing (Html, a, div, h1, h2, iframe, img, li, p, text, ul)
+import Html.Attributes exposing (attribute, class, height, href, src, target, title, width)
 
 
 
@@ -39,6 +39,7 @@ view : Model -> Html Msg
 view model =
     div [ class "container content" ]
         [ viewHeader
+        , viewVideo
         , viewBlogs
         , viewPublications
         , viewTalks
@@ -68,6 +69,20 @@ viewNav =
             , li [] [ linkNewTab [ href "https://blog.mpj.io" ] [ text "Blog" ] ]
             ]
         ]
+
+
+viewVideo : Html Msg
+viewVideo =
+    iframe
+        [ width 560
+        , height 315
+        , src "https://www.youtube.com/embed/ZpMzprmWBfo"
+        , title ""
+        , attribute "frameborder" "0"
+        , attribute "allow" "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        , attribute "allowfullscreen" ""
+        ]
+        []
 
 
 viewBlogs : Html Msg
