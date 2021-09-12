@@ -91,7 +91,7 @@ viewBlogs =
         data =
             [ ( "https://www.codementor.io/@amappuji/", "mpj @Codementor" )
             , ( "https://medium.com/@empeje", "mpj @Medium" )
-            , ( "https://twitter.com/@mpj_rocket", "mpj @Twitter" )
+            , ( "https://twitter.com/@YoKulGuy", "mpj @Twitter" )
             ]
     in
     List.append
