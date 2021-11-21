@@ -40,6 +40,7 @@ view model =
     div [ class "container content" ]
         [ viewHeader
         , viewVideo
+        , viewHireMe
         , viewBlogs
         , viewPublications
         , viewTalks
@@ -57,6 +58,15 @@ viewHeader =
         , p [] [ text "by MPJ (not Michael Jordan)" ]
         , img [ class "logo", src "https://github.com/empeje.png" ] []
         , p [] [ text "I'm a software engineer and tech creator living in Indonesia. I'm a big fan of Rocket Raccoon." ]
+        ]
+
+
+viewHireMe : Html Msg
+viewHireMe =
+    div [ class "hire-me" ]
+        [ h1 [] [ text "Hire Me!" ]
+        , p [] [ text "I'm currently a fractional CTO! I work with companies that need technical guidance for tech products, from complex web applications to data science, AI, and blockchain. I also frequently work with companies top management to translate the business strategy into a solid tech roadmap." ]
+        , p [] [ text "Feel free to consult with me at a (dot) mappuji (at) gmail (dot) com."]
         ]
 
 
