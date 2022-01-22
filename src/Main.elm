@@ -77,6 +77,7 @@ viewNav =
             [ li [] [ linkNewTab [ href "https://calendly.com/a-mappuji/mentoring" ] [ text "Mentoring" ] ]
             , li [] [ linkNewTab [ href "https://gumroad.com/mpj" ] [ text "Newsletter" ] ]
             , li [] [ linkNewTab [ href "https://blog.mpj.io" ] [ text "Blog" ] ]
+            , li [] [ linkNewTab [ href "https://buidling.substack.com" ] [ text "Substack" ] ]
             ]
         ]
 
@@ -102,6 +103,7 @@ viewBlogs =
             [ ( "https://www.codementor.io/@amappuji/", "mpj @Codementor" )
             , ( "https://medium.com/@empeje", "mpj @Medium" )
             , ( "https://twitter.com/@YoKulGuy", "mpj @Twitter" )
+            , ( "https://buidling.substack.com", "mpj @Substack" )
             ]
     in
     List.append
