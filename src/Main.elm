@@ -78,6 +78,7 @@ viewNav =
             , li [] [ linkNewTab [ href "https://gumroad.com/mpj" ] [ text "Newsletter" ] ]
             , li [] [ linkNewTab [ href "https://blog.mpj.io" ] [ text "Blog" ] ]
             , li [] [ linkNewTab [ href "https://buidling.substack.com" ] [ text "Substack" ] ]
+            , li [] [ linkNewTab [ href "https://akademi.mpj.io" ] [ text "Akademi" ] ]
             ]
         ]
 
