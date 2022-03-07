@@ -137,7 +137,8 @@ viewTalks : Html Msg
 viewTalks =
     let
         data =
-            [ ( "https://pycon.id/speaker/", "2021. Pycon Indonesia. Blockchain 101: Deploy your first smart contract with Python")
+            [ ( "https://www.youtube.com/watch?v=HE-81zhcCig&t=3027s", "2022. Podcast Indonesia Belajar. Seputar Smart Contract bersama Abdurrachman Mappuji (In Bahasa)")
+            , ( "https://pycon.id/speaker/", "2021. Pycon Indonesia. Blockchain 101: Deploy your first smart contract with Python")
             , ( "https://player.vimeo.com/video/561110523?dnt=1&app_id=122963&controls=1&hd=1&autohide=1#t=7924", "2021. Web Directions Lazy Load. How Russian Doll Caching Can Improve Server Side Rendering" )
             , ( "https://www.youtube.com/watch?v=xGcQK0VCngI", "2021. Conf42 Java. Enjoy Typesafe Web Development with Eta" )
             , ( "https://www.youtube.com/watch?v=YXOCGFzOtPo", "2021. KulWeekend #3 Markov Chain Bots" )
