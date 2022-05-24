@@ -105,6 +105,7 @@ viewBlogs =
             , ( "https://medium.com/@empeje", "mpj @Medium" )
             , ( "https://twitter.com/@YoKulGuy", "mpj @Twitter" )
             , ( "https://buidling.substack.com", "mpj @Substack" )
+            , ( "https://buidling.substack.com/s/temanstacks", "Teman Stacks - Podcast" )
             ]
     in
     List.append
