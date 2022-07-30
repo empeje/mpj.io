@@ -44,6 +44,7 @@ view model =
         , viewBlogs
         , viewPublications
         , viewTalks
+        , viewCoverages
         , viewCompanies
         , viewInvestments
         , viewFooter
@@ -133,6 +134,22 @@ viewPublications =
         (viewList data)
         |> div []
 
+viewCoverages : Html Msg
+viewCoverages =
+    let
+        data =
+            [ ( "https://issuu.com/lpktaftugm/docs/sonar", "Belajar Kepemimpinan. 2017. Engineering Journal. Sonar - Majalah Ilmia Populer LPKTA FT UGM" )
+            , ( "https://rizafahmi.com/2018/07/12/rangkuman-acara-devc-jakarta-build-day-2018/", "Rangkuman Acara Developer Circles Jakarta Build Day. 2018. Facebook Developer Indonesia" )
+            , ( "https://medium.com/compfest/software-engineering-academy-camp-1-berbagai-cara-untuk-membangun-software-481055ad70d1", "Software Engineering Academy Camp 1: Berbagai Cara untuk Membangun Software. 2021. COMPFEST 13 - Universitas Indonesia" )
+            ]
+    in
+    List.append
+        [ h2 [] [ text "Coverages" ]
+        , p [] [ text "Below is notable coverage of mine." ]
+        ]
+        (viewList data)
+        |> div []
+
 
 viewTalks : Html Msg
 viewTalks =
@@ -166,8 +183,8 @@ viewCompanies : Html Msg
 viewCompanies =
     let
         data =
-            [ ( "https://kulkul.tech/", "Kulkul Tech" )
-            , ( "https://084soft.com/", "084Soft (Closed)" )
+            [ ( "https://www.glassdoor.com/Reviews/Kulkul-Reviews-E3830299.htm", "Kulkul Tech (I'm having 100% CEO Approval in Glassdoor!)" )
+            , ( "https://mpj.io/#404", "084Soft (Closed)" )
             ]
     in
     List.append
