@@ -183,7 +183,7 @@ viewCompanies : Html Msg
 viewCompanies =
     let
         data =
-            [ ( "https://www.glassdoor.com/Reviews/Kulkul-Reviews-E3830299.htm", "Kulkul Tech (I'm having 100% CEO Approval in Glassdoor!)" )
+            [ ( "https://www.glassdoor.com/Reviews/Kulkul-Reviews-E3830299.htm", "Kulkul Tech (I'm having 100% CEO Approval in Glassdoor!) - Stepped Down" )
             , ( "https://mpj.io/#404", "084Soft (Closed)" )
             ]
     in
