@@ -59,6 +59,7 @@ viewHeader =
         , p [] [ text "by MPJ (not Michael Jordan)" ]
         , img [ class "logo", src "https://github.com/empeje.png" ] []
         , p [] [ text "I'm a software engineer and tech creator living in Indonesia. I'm a big fan of Rocket Raccoon." ]
+        , p [] [ text "I'm currently work in Delivery Hero Group's Company Called Glovo and we're hiring. ", a [ href "https://grnh.se/c178350d2us"] [ text "See amazing opportunity here!" ] ]
         ]
 
 
