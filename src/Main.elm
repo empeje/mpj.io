@@ -40,6 +40,7 @@ view model =
     div [ class "container content" ]
         [ viewHeader
         , viewVideo
+        , viewRecentEvent
         , viewHireMe
         , viewBlogs
         , viewPublications
@@ -62,6 +63,14 @@ viewHeader =
         , p [] [ text "I'm currently work in Delivery Hero Group's Company Called Glovo and we're hiring. ", a [ href "https://grnh.se/c178350d2us"] [ text "See amazing opportunity here!" ] ]
         ]
 
+viewRecentEvent : Html Msg
+viewRecentEvent =
+    List.append
+        [ h1 [] [ text "Recent Event" ]
+        , p [] [ text "Please refer below for an interesting event that I recently participated / involved with" ]
+        ]
+        (viewList (List.take 2 talksData))
+        |> div []
 
 viewHireMe : Html Msg
 viewHireMe =
@@ -151,12 +160,10 @@ viewCoverages =
         (viewList data)
         |> div []
 
-
-viewTalks : Html Msg
-viewTalks =
-    let
-        data =
-            [ ( "https://youtu.be/SXljxRDzfGY", "2022. Remote Skills Academy. DAO Masterclass (In Bahasa)")
+talksData : List (String, String)
+talksData =
+            [ ( "https://www.meetup.com/scalawaw/events/288163720/", "Tuesday, September 6, 2022. ScalaWAW #24 - back to school - Web3 & Ethereun with Scala")
+            , ( "https://youtu.be/SXljxRDzfGY", "2022. Remote Skills Academy. DAO Masterclass (In Bahasa)")
             , ( "https://www.youtube.com/watch?v=HE-81zhcCig&t=3027s", "2022. Podcast Indonesia Belajar. Seputar Smart Contract bersama Abdurrachman Mappuji (In Bahasa)")
             , ( "https://us02web.zoom.us/rec/play/UR3gIJNnMzttJ_THqBtL8OWMJ4lCYOzGM_lM4BGggHnWrpcAWod0bwauaeXUxdVksBDAYtHkKlUsJWkN.te-e7mqNlXT-SN9c?continueMode=true&_x_zm_rtaid=ucgVi34HRgqf1s1nCtieiQ.1650350871201.02dbdc11ba23e3e6d3d29524f3b907e5&_x_zm_rhtaid=503", "2021. Remote Skills Academy Bali. Low-code Masterclass with Retool (In Bahasa) - Passcode: %UuDV0iG")
             , ( "https://pycon.id/speaker/", "2021. Pycon Indonesia. Blockchain 101: Deploy your first smart contract with Python")
@@ -171,12 +178,14 @@ viewTalks =
             , ( "https://www.youtube.com/watch?v=kTeUuLXzwzk", "2018. DevOpsDay Jakarta. DevOps practice in nonprofit" )
             , ( "https://www.youtube.com/watch?v=hLw0WZQajUo", "2017. PyCon Indonesia Surabaya. Playful Load Testing with Locust" )
             ]
-    in
+
+viewTalks : Html Msg
+viewTalks =
     List.append
         [ h2 [] [ text "Talks" ]
         , p [] [ text "Occasionally, I speak in various tech events, these are my recent talks." ]
         ]
-        (viewList data)
+        (viewList talksData)
         |> div []
 
 
