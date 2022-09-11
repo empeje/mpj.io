@@ -21,7 +21,7 @@ init =
 
 linktree : String
 linktree =
-    "https://linktr.ee/yokulguy"
+    "https://linktr.ee/yokulguy?ref=mpj.io"
 
 
 
@@ -92,21 +92,21 @@ viewHireMe =
         , linkNewTab [ href linktree ]
             [ imgBadge
                 [ src "1-mentoring-package-private.png"
-                , alt "1 Hour Private Mentoring with world-class mentor (5 Star in Codementor)."
+                , alt "1 Hour Private Mentoring with world-class mentor (5 Star in Codementor). Special price only $70."
                 ]
                 []
             ]
         , linkNewTab [ href linktree ]
             [ imgBadge
                 [ src "2-mentoring-package-exclusive.png"
-                , alt "8 x 1 Hour Exclusive Mentoring with world-class mentor (5 Star in Codementor)."
+                , alt "8 x 1 Hour Exclusive Mentoring with world-class mentor (5 Star in Codementor). All for only $500."
                 ]
                 []
             ]
         , linkNewTab [ href linktree ]
             [ imgBadge
                 [ src "3-mentoring-package-complete.png"
-                , alt "8 x 2 Hour Complete, Exclusive and & Personalized Mentoring with world-class mentor (5 Star in Codementor). Get your study plan now!"
+                , alt "8 x 2 Hour Complete, Exclusive and & Personalized Mentoring with world-class mentor (5 Star in Codementor). Get your study plan now! All exclusive benefits for only $2000."
                 ]
                 []
             ]
