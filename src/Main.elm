@@ -1,8 +1,9 @@
 module Main exposing (..)
 
 import Browser
+import Dict
 import Html exposing (Html, a, div, h1, h2, iframe, img, li, p, text, ul)
-import Html.Attributes exposing (attribute, class, height, href, src, target, title, width)
+import Html.Attributes exposing (alt, attribute, class, height, href, id, src, target, title, width)
 
 
 
@@ -16,6 +17,11 @@ type alias Model =
 init : ( Model, Cmd Msg )
 init =
     ( {}, Cmd.none )
+
+
+linktree : String
+linktree =
+    "https://linktr.ee/yokulguy"
 
 
 
@@ -60,8 +66,9 @@ viewHeader =
         , p [] [ text "by MPJ (not Michael Jordan)" ]
         , img [ class "logo", src "https://github.com/empeje.png" ] []
         , p [] [ text "I'm a software engineer and tech creator living in Indonesia. I'm a big fan of Rocket Raccoon." ]
-        , p [] [ text "I'm currently work in Delivery Hero Group's Company Called Glovo and we're hiring. ", a [ href "https://grnh.se/c178350d2us"] [ text "See amazing opportunity here!" ] ]
+        , p [] [ text "I'm currently work in Delivery Hero Group's Company Called Glovo and we're hiring. ", a [ href "https://grnh.se/c178350d2us" ] [ text "See amazing opportunity here!" ] ]
         ]
+
 
 viewRecentEvent : Html Msg
 viewRecentEvent =
@@ -72,12 +79,37 @@ viewRecentEvent =
         (viewList (List.take 2 talksData))
         |> div []
 
+
 viewHireMe : Html Msg
 viewHireMe =
     div [ class "hire-me" ]
-        [ h1 [] [ text "Hire Me!" ]
+        [ h1 [ id "hire-me" ] [ text "Hire Me!" ]
+        , h2 [ id "hire-me-cto" ] [ text "Fractional/Consulting CTO" ]
         , p [] [ text "I'm currently a fractional CTO! I work with companies that need technical guidance for tech products, from complex web applications to data science, AI, and blockchain. I also frequently work with companies top management to translate the business strategy into a solid tech roadmap." ]
-        , p [] [ text "Feel free to consult with me at a (dot) mappuji (at) gmail (dot) com."]
+        , p [] [ text "Feel free to consult with me at a (dot) mappuji (at) gmail (dot) com." ]
+        , h2 [ id "hire-me-mentor" ] [ text "Exclusive Mentoring" ]
+        , p [] [ text "I mentored high-potential engineers to be world-class in their craft including Fortune 500 companies like Amazon, Redhat, SAP, etc." ]
+        , linkNewTab [ href linktree ]
+            [ imgBadge
+                [ src "1-mentoring-package-private.png"
+                , alt "1 Hour Private Mentoring with world-class mentor (5 Star in Codementor)."
+                ]
+                []
+            ]
+        , linkNewTab [ href linktree ]
+            [ imgBadge
+                [ src "2-mentoring-package-exclusive.png"
+                , alt "8 x 1 Hour Exclusive Mentoring with world-class mentor (5 Star in Codementor)."
+                ]
+                []
+            ]
+        , linkNewTab [ href linktree ]
+            [ imgBadge
+                [ src "3-mentoring-package-complete.png"
+                , alt "8 x 2 Hour Complete, Exclusive and & Personalized Mentoring with world-class mentor (5 Star in Codementor). Get your study plan now!"
+                ]
+                []
+            ]
         ]
 
 
@@ -85,11 +117,10 @@ viewNav : Html Msg
 viewNav =
     div [ class "navigation" ]
         [ ul []
-            [ li [] [ linkNewTab [ href "https://book.morgen.so/empeje/engineering-1o1" ] [ text "Mentoring" ] ]
-            , li [] [ linkNewTab [ href "https://gumroad.com/mpj" ] [ text "Newsletter" ] ]
+            [ li [] [ a [ href "#hire-me-mentor" ] [ text "Mentoring" ] ]
+            , li [] [ a [ href "#hire-me-cto" ] [ text "CTO Service" ] ]
             , li [] [ linkNewTab [ href "https://blog.mpj.io" ] [ text "Blog" ] ]
-            , li [] [ linkNewTab [ href "https://buidling.substack.com" ] [ text "Substack" ] ]
-            , li [] [ linkNewTab [ href "https://akademi.mpj.io" ] [ text "Akademi" ] ]
+            , li [] [ linkNewTab [ href "https://buidling.substack.com" ] [ text "Crypto Podcast" ] ]
             ]
         ]
 
@@ -144,6 +175,7 @@ viewPublications =
         (viewList data)
         |> div []
 
+
 viewCoverages : Html Msg
 viewCoverages =
     let
@@ -160,24 +192,26 @@ viewCoverages =
         (viewList data)
         |> div []
 
-talksData : List (String, String)
+
+talksData : List ( String, String )
 talksData =
-            [ ( "https://www.meetup.com/scalawaw/events/288163720/", "Tuesday, September 6, 2022. ScalaWAW #24 - back to school - Web3 & Ethereun with Scala")
-            , ( "https://youtu.be/SXljxRDzfGY", "2022. Remote Skills Academy. DAO Masterclass (In Bahasa)")
-            , ( "https://www.youtube.com/watch?v=HE-81zhcCig&t=3027s", "2022. Podcast Indonesia Belajar. Seputar Smart Contract bersama Abdurrachman Mappuji (In Bahasa)")
-            , ( "https://us02web.zoom.us/rec/play/UR3gIJNnMzttJ_THqBtL8OWMJ4lCYOzGM_lM4BGggHnWrpcAWod0bwauaeXUxdVksBDAYtHkKlUsJWkN.te-e7mqNlXT-SN9c?continueMode=true&_x_zm_rtaid=ucgVi34HRgqf1s1nCtieiQ.1650350871201.02dbdc11ba23e3e6d3d29524f3b907e5&_x_zm_rhtaid=503", "2021. Remote Skills Academy Bali. Low-code Masterclass with Retool (In Bahasa) - Passcode: %UuDV0iG")
-            , ( "https://pycon.id/speaker/", "2021. Pycon Indonesia. Blockchain 101: Deploy your first smart contract with Python")
-            , ( "https://player.vimeo.com/video/561110523?dnt=1&app_id=122963&controls=1&hd=1&autohide=1#t=7924", "2021. Web Directions Lazy Load. How Russian Doll Caching Can Improve Server Side Rendering" )
-            , ( "https://www.youtube.com/watch?v=xGcQK0VCngI", "2021. Conf42 Java. Enjoy Typesafe Web Development with Eta" )
-            , ( "https://www.youtube.com/watch?v=YXOCGFzOtPo", "2021. KulWeekend #3 Markov Chain Bots" )
-            , ( "https://www.youtube.com/watch?v=4wuN2UOVSp4", "2020. KulWeekend #2 Data Cleaning" )
-            , ( "https://www.youtube.com/watch?v=n-Em6-Xt4Co", "2020. KulWeekend #1 Introduction to Python & Web Scrapping" )
-            , ( "https://www.youtube.com/watch?v=HOkyc23ZKE4", "2020. KulTalks. Build and Deploy Your First Website (In Bahasa)" )
-            , ( "https://www.youtube.com/watch?v=gHi4l1N62wc", "2020. SabernX. Intro to Social Coding with Git & GitHub (In Bahasa)" )
-            , ( "https://www.youtube.com/watch?v=jFP_ompB0vs", "2018. MoodleMoot Philippines. Deploy Moodle in Raspberry Pi with Docker & Remote" )
-            , ( "https://www.youtube.com/watch?v=kTeUuLXzwzk", "2018. DevOpsDay Jakarta. DevOps practice in nonprofit" )
-            , ( "https://www.youtube.com/watch?v=hLw0WZQajUo", "2017. PyCon Indonesia Surabaya. Playful Load Testing with Locust" )
-            ]
+    [ ( "https://www.meetup.com/scalawaw/events/288163720/", "Tuesday, September 6, 2022. ScalaWAW #24 - back to school - Web3 & Ethereun with Scala" )
+    , ( "https://youtu.be/SXljxRDzfGY", "2022. Remote Skills Academy. DAO Masterclass (In Bahasa)" )
+    , ( "https://www.youtube.com/watch?v=HE-81zhcCig&t=3027s", "2022. Podcast Indonesia Belajar. Seputar Smart Contract bersama Abdurrachman Mappuji (In Bahasa)" )
+    , ( "https://us02web.zoom.us/rec/play/UR3gIJNnMzttJ_THqBtL8OWMJ4lCYOzGM_lM4BGggHnWrpcAWod0bwauaeXUxdVksBDAYtHkKlUsJWkN.te-e7mqNlXT-SN9c?continueMode=true&_x_zm_rtaid=ucgVi34HRgqf1s1nCtieiQ.1650350871201.02dbdc11ba23e3e6d3d29524f3b907e5&_x_zm_rhtaid=503", "2021. Remote Skills Academy Bali. Low-code Masterclass with Retool (In Bahasa) - Passcode: %UuDV0iG" )
+    , ( "https://pycon.id/speaker/", "2021. Pycon Indonesia. Blockchain 101: Deploy your first smart contract with Python" )
+    , ( "https://player.vimeo.com/video/561110523?dnt=1&app_id=122963&controls=1&hd=1&autohide=1#t=7924", "2021. Web Directions Lazy Load. How Russian Doll Caching Can Improve Server Side Rendering" )
+    , ( "https://www.youtube.com/watch?v=xGcQK0VCngI", "2021. Conf42 Java. Enjoy Typesafe Web Development with Eta" )
+    , ( "https://www.youtube.com/watch?v=YXOCGFzOtPo", "2021. KulWeekend #3 Markov Chain Bots" )
+    , ( "https://www.youtube.com/watch?v=4wuN2UOVSp4", "2020. KulWeekend #2 Data Cleaning" )
+    , ( "https://www.youtube.com/watch?v=n-Em6-Xt4Co", "2020. KulWeekend #1 Introduction to Python & Web Scrapping" )
+    , ( "https://www.youtube.com/watch?v=HOkyc23ZKE4", "2020. KulTalks. Build and Deploy Your First Website (In Bahasa)" )
+    , ( "https://www.youtube.com/watch?v=gHi4l1N62wc", "2020. SabernX. Intro to Social Coding with Git & GitHub (In Bahasa)" )
+    , ( "https://www.youtube.com/watch?v=jFP_ompB0vs", "2018. MoodleMoot Philippines. Deploy Moodle in Raspberry Pi with Docker & Remote" )
+    , ( "https://www.youtube.com/watch?v=kTeUuLXzwzk", "2018. DevOpsDay Jakarta. DevOps practice in nonprofit" )
+    , ( "https://www.youtube.com/watch?v=hLw0WZQajUo", "2017. PyCon Indonesia Surabaya. Playful Load Testing with Locust" )
+    ]
+
 
 viewTalks : Html Msg
 viewTalks =
@@ -248,6 +282,10 @@ viewFooter =
 linkNewTab : List (Html.Attribute msg) -> List (Html msg) -> Html msg
 linkNewTab attrs children =
     a (List.append [ target "_blank" ] attrs) children
+
+imgBadge : List (Html.Attribute msg) -> List (Html msg) -> Html msg
+imgBadge attrs children =
+    img (List.append [ width 300 ] attrs) children
 
 
 pickBorder : Int -> String
