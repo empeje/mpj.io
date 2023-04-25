@@ -2,8 +2,8 @@ module Main exposing (..)
 
 import Browser
 import Dict
-import Html exposing (Html, a, div, h1, h2, iframe, img, li, p, text, ul)
-import Html.Attributes exposing (alt, attribute, class, height, href, id, src, target, title, width)
+import Html exposing (Html, a, blockquote, br, div, h1, h2, h3, iframe, img, li, node, p, text, ul)
+import Html.Attributes exposing (alt, attribute, class, dir, height, href, id, lang, src, target, title, width)
 
 
 
@@ -110,6 +110,59 @@ viewHireMe =
                 ]
                 []
             ]
+        , viewMyMentee
+        ]
+
+
+viewMyMentee : Html Msg
+viewMyMentee =
+    div []
+        [ h2 [ id "mentee-works" ] [ text "Mentee works" ]
+        , p [] [ text "Here are some examples of the work that has been done by my mentees." ]
+        , h3 [] [ text "CI/CD Gitlab pipeline by Aurélien Lair" ]
+        , blockquote
+            [ class "twitter-tweet"
+            ]
+            [ p
+                [ lang "en"
+                , dir "ltr"
+                ]
+                [ text "📣📣📣 Find out my last proof of concept of a CI/CD Gitlab pipeline runnable both locally or on"
+                , a
+                    [ href "https://twitter.com/hashtag/gitlab?src=hash&ref_src=twsrc%5Etfw"
+                    ]
+                    [ text "#gitlab" ]
+                , text "with custom gitlab-runner"
+                , br []
+                    []
+                , text "A special thanks to MPJ"
+                , a
+                    [ href "https://twitter.com/YoKulGuy?ref_src=twsrc%5Etfw"
+                    ]
+                    [ text "@YoKulGuy" ]
+                , text "for his help on this. You are my Miyagi sensei bro 🇯🇵 🙇 🙏"
+                , br []
+                    []
+                , br []
+                    []
+                , text "↪"
+                , a
+                    [ href "https://t.co/WLrzXDarWp"
+                    ]
+                    [ text "https://t.co/WLrzXDarWp" ]
+                ]
+            , text "— Aurélien Lair (@aurelien_lair)"
+            , a
+                [ href "https://twitter.com/aurelien_lair/status/1650490509645758471?ref_src=twsrc%5Etfw"
+                ]
+                [ text "April 24, 2023" ]
+            ]
+        , node "script"
+            [ attribute "async" ""
+            , src "https://platform.twitter.com/widgets.js"
+            , attribute "charset" "utf-8"
+            ]
+            []
         ]
 
 
@@ -198,7 +251,7 @@ talksData =
     [ ( "https://yavaconf.com/en/", "Wednesday, September 28, 2022. Ya!vaConf - Complete Web3 & Ethereun with Scala" )
     , ( "https://www.meetup.com/scalawaw/events/288163720/", "Tuesday, September 6, 2022. ScalaWAW #24 - back to school - Web3 & Ethereun with Scala" )
     , ( "https://youtu.be/SXljxRDzfGY", "2022. Remote Skills Academy. DAO Masterclass (In Bahasa)" )
-    , ( "https://youtu.be/hPCP_42jcH0", "2022. Republik Rupiah. Perspektif DEVELOPER Web3: Membangun Saat BEAR Market | Indonesia (In Bahasa)")
+    , ( "https://youtu.be/hPCP_42jcH0", "2022. Republik Rupiah. Perspektif DEVELOPER Web3: Membangun Saat BEAR Market | Indonesia (In Bahasa)" )
     , ( "https://www.youtube.com/watch?v=HE-81zhcCig&t=3027s", "2022. Podcast Indonesia Belajar. Seputar Smart Contract bersama Abdurrachman Mappuji (In Bahasa)" )
     , ( "https://us02web.zoom.us/rec/play/UR3gIJNnMzttJ_THqBtL8OWMJ4lCYOzGM_lM4BGggHnWrpcAWod0bwauaeXUxdVksBDAYtHkKlUsJWkN.te-e7mqNlXT-SN9c?continueMode=true&_x_zm_rtaid=ucgVi34HRgqf1s1nCtieiQ.1650350871201.02dbdc11ba23e3e6d3d29524f3b907e5&_x_zm_rhtaid=503", "2021. Remote Skills Academy Bali. Low-code Masterclass with Retool (In Bahasa) - Passcode: %UuDV0iG" )
     , ( "https://pycon.id/speaker/", "2021. Pycon Indonesia. Blockchain 101: Deploy your first smart contract with Python" )
@@ -284,6 +337,7 @@ viewFooter =
 linkNewTab : List (Html.Attribute msg) -> List (Html msg) -> Html msg
 linkNewTab attrs children =
     a (List.append [ target "_blank" ] attrs) children
+
 
 imgBadge : List (Html.Attribute msg) -> List (Html msg) -> Html msg
 imgBadge attrs children =
