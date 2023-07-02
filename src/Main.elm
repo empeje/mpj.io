@@ -65,7 +65,7 @@ viewHeader =
         , h1 [] [ text "Towards entrepreneurial and investment wisdom" ]
         , p [] [ text "by MPJ" ]
         , img [ class "logo", src "https://github.com/empeje.png" ] []
-        , p [] [ text "I'm a software engineer and tech creator living in Indonesia. Fun fact: I'm a big fan of Rocket Raccoon." ]
+        , p [] [ text "I'm a 💻 software engineer, 🏗️ builder, and mentor to highly-selected engineers living in Indonesia. Fun fact: I'm a big fan of Rocket Raccoon." ]
         , p [] [ text "I work at Delivery Hero Group's Company Called Glovo and we're hiring. ", a [ href "https://grnh.se/c178350d2us" ] [ text "See amazing opportunity here!" ] ]
         ]
 
