@@ -5,7 +5,7 @@
   "author": "mpj <11813607+empeje@users.noreply.github.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "elm-app start --no-browser",
+    "dev": "env NODE_OPTIONS=--openssl-legacy-provider PORT=8001 elm-app start --no-browser",
     "build": "elm-app build"
   },
   "devDependencies": {
