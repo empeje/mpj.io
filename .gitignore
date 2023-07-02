@@ -15,6 +15,7 @@ node_modules
 
 # Package manager
 package-lock.json
+yarn.lock
 
 # IDE
 .idea
