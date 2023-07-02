@@ -2,7 +2,7 @@ module Main exposing (..)
 
 import Browser
 import Dict
-import Html exposing (Html, a, blockquote, br, div, h1, h2, h3, iframe, img, li, node, p, text, ul)
+import Html exposing (Html, a, blockquote, br, div, h1, h2, h3, iframe, img, li, node, p, text, ul, i)
 import Html.Attributes exposing (alt, attribute, class, dir, height, href, id, lang, src, target, title, width)
 
 
@@ -63,10 +63,10 @@ viewHeader =
     div [ class "header" ]
         [ viewNav
         , h1 [] [ text "Towards entrepreneurial and investment wisdom" ]
-        , p [] [ text "by MPJ (not Michael Jordan)" ]
+        , p [] [ text "by MPJ" ]
         , img [ class "logo", src "https://github.com/empeje.png" ] []
-        , p [] [ text "I'm a software engineer and tech creator living in Indonesia. I'm a big fan of Rocket Raccoon." ]
-        , p [] [ text "I'm currently work in Delivery Hero Group's Company Called Glovo and we're hiring. ", a [ href "https://grnh.se/c178350d2us" ] [ text "See amazing opportunity here!" ] ]
+        , p [] [ text "I'm a software engineer and tech creator living in Indonesia. Fun fact: I'm a big fan of Rocket Raccoon." ]
+        , p [] [ text "I work at Delivery Hero Group's Company Called Glovo and we're hiring. ", a [ href "https://grnh.se/c178350d2us" ] [ text "See amazing opportunity here!" ] ]
         ]
 
 
@@ -85,10 +85,10 @@ viewHireMe =
     div [ class "hire-me" ]
         [ h1 [ id "hire-me" ] [ text "Hire Me!" ]
         , h2 [ id "hire-me-cto" ] [ text "Fractional/Consulting CTO" ]
-        , p [] [ text "I'm currently a fractional CTO! I work with companies that need technical guidance for tech products, from complex web applications to data science, AI, and blockchain. I also frequently work with companies top management to translate the business strategy into a solid tech roadmap." ]
+        , p [] [ text "I'm currently a fractional CTO to highly-selected companies! I work with companies that need technical guidance for tech products who wants to go 🌏 world-class, from complex web applications to data science, AI, and blockchain. I also frequently work with companies top management to translate the business strategy into a solid tech roadmap." ]
         , p [] [ text "Feel free to consult with me at a (dot) mappuji (at) gmail (dot) com." ]
         , h2 [ id "hire-me-mentor" ] [ text "Exclusive Mentoring" ]
-        , p [] [ text "I mentored high-potential engineers to be world-class in their craft including Fortune 500 companies like Amazon, Redhat, SAP, etc." ]
+        , p [] [ text "I run a highly-selective mentoring for high-potential engineers to be 🌏 world-class in their craft. Mentee includes Fortune 500 companies engineers from Amazon, Redhat, SAP, etc." ]
         , linkNewTab [ href linktree ]
             [ imgBadge
                 [ src "1-mentoring-package-private.png"
@@ -110,6 +110,7 @@ viewHireMe =
                 ]
                 []
             ]
+        , p [] [ i [] [text "*) Payment doesn't guarantee acceptance. Refund applicable for rejected mentees."] ]
         , viewMyMentee
         ]
 
@@ -289,7 +290,7 @@ viewCompanies =
     in
     List.append
         [ h2 [] [ text "Companies" ]
-        , p [] [ text "I really interested in entrepreneurial activities, and in 2020 despite the pandemic, I manage to start one. Here are some companies I actively working on" ]
+        , p [] [ text "I really interested in entrepreneurial activities, and in 2020 despite the pandemic, I manage to start one. Here are some companies I actively / was active on" ]
         ]
         (viewList data)
         |> div []
