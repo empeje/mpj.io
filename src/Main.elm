@@ -3,7 +3,7 @@ module Main exposing (..)
 import Browser
 import Dict
 import Html exposing (Html, a, blockquote, br, div, h1, h2, h3, iframe, img, li, node, p, text, ul, i)
-import Html.Attributes exposing (alt, attribute, class, dir, height, href, id, lang, src, target, title, width)
+import Html.Attributes exposing (alt, attribute, class, dir, height, href, id, lang, src, target, title, width, id)
 
 
 
@@ -277,7 +277,7 @@ talksData =
 viewTalks : Html Msg
 viewTalks =
     List.append
-        [ h2 [] [ text "Talks" ]
+        [ h2 [ id "talks" ] [ text "Talks" ]
         , p [] [ text "Occasionally, I speak in various tech events, these are my recent talks." ]
         ]
         (viewList talksData)
