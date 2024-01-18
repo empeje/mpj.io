@@ -9,7 +9,8 @@
     "build": "elm-app build"
   },
   "devDependencies": {
-    "create-elm-app": "^5.22.0"
+    "create-elm-app": "^5.22.0",
+    "elm-format": "^0.8.7"
   },
   "dependencies": {
     "bootstrap": "^4.6.0",
