@@ -107,7 +107,7 @@ viewHireMe =
             ]
         , p [] [ text "If you're a business owner who wants to bring your company's tech to the next level, consult with me at a (dot) mappuji (at) gmail (dot) com." ]
         , h2 [ id "hire-me-mentor" ] [ text "Exclusive Mentoring" ]
-        , p [] [ text "I run a highly-selective mentoring for high-potential engineers to be 🌏 world-class in their craft. Mentee includes Fortune 500 companies engineers from Amazon, Redhat, SAP, etc." ]
+        , p [] [ text "I run a highly-selective mentoring for high-potential engineers to be 🌏 world-class in their crafts. Mentee includes Fortune 500 companies engineers from Amazon, Redhat, SAP, etc." ]
         , linkNewTab [ href linktree ]
             [ imgBadge
                 [ src "1-mentoring-package-private.png"
