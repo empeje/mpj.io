@@ -215,11 +215,10 @@ viewBlogs : Html Msg
 viewBlogs =
     let
         data =
-            [ ( "https://www.codementor.io/@amappuji/", "mpj @Codementor" )
-            , ( "https://medium.com/@empeje", "mpj @Medium" )
-            , ( "https://twitter.com/@YoKulGuy", "mpj @Twitter" )
-            , ( "https://buidling.substack.com", "mpj @Substack" )
-            , ( "https://buidling.substack.com/s/temanstacks", "Teman Stacks - Podcast" )
+            [ ( "https://medium.com/@empeje/subscribe", "Regular Writing on Tech, Wisdom & Philosophy—Medium" )
+            , ( "https://twitter.com/@YoKulGuy", "Not-so Regular tweet on X" )
+            , ( "https://www.codementor.io/@amappuji#:~:text=Community%20Posts", "Popular Blog on Codementor" )
+            , ( "https://legacy.mpj.io", "Legacy Blog (2018-2020)" )
             ]
     in
     List.append
