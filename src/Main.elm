@@ -2,7 +2,7 @@ module Main exposing (..)
 
 import Browser
 import Dict
-import Html exposing (Html, a, blockquote, br, div, h1, h2, h3, i, iframe, img, li, node, p, text, ul)
+import Html exposing (Html, a, blockquote, br, button, div, h1, h2, h3, hr, i, iframe, img, li, node, p, text, ul)
 import Html.Attributes exposing (alt, attribute, class, dir, height, href, id, lang, src, style, target, title, width)
 
 
@@ -47,7 +47,9 @@ view model =
         [ viewHeader
         , viewVideo
         , viewRecentEvent
+        , viewBreak
         , viewHireMe
+        , viewBreak
         , viewBlogs
         , viewPublications
         , viewTalks
@@ -56,6 +58,11 @@ view model =
         , viewInvestments
         , viewFooter
         ]
+
+
+viewBreak : Html Msg
+viewBreak =
+    hr [] []
 
 
 viewHeader : Html Msg
@@ -98,14 +105,15 @@ viewHireMe =
     div [ class "hire-me" ]
         [ h1 [ id "hire-me" ] [ text "Hire Me!" ]
         , h2 [ id "hire-me-cto" ] [ text "Fractional/Consulting CTO" ]
-        , p [] [ text "Beside my full-time role, I also currently a fractional CTO to highly-selected companies! I work with companies that need technical guidance for tech products who wants to go 🌏 world-class, from complex web applications to data science, AI, and blockchain even before it was cool. I work with companies top management to translate the business strategy into a solid tech roadmap." ]
+        , p [] [ text "Beside my full-time role, I also currently a fractional Chief Technology Officer (fCTO) to highly-selected companies! I work with companies that need technical guidance for tech products who wants to go 🌏 world-class, from complex web applications to data science, AI, and blockchain even before it was cool. I work with companies top management to translate the business strategy into a solid tech roadmap." ]
         , p [] [ text "Here are some curated list of companies/startups I have advised as their fractional CTO." ]
         , ul []
             [ li [] [ text "A confidential mining company" ]
             , li [] [ text "A confidential NFT marketplace" ]
-            , li [] [ a [ href "https://tryhologram.art" ] [ text "Hologram AI" ] ]
+            , li [] [ linkNewTab [ href "https://tryhologram.art" ] [ text "Hologram AI" ] ]
             ]
         , p [] [ text "If you're a business owner who wants to bring your company's tech to the next level, consult with me at a (dot) mappuji (at) gmail (dot) com." ]
+        , viewBreak
         , h2 [ id "hire-me-mentor" ] [ text "Exclusive Mentoring" ]
         , p [] [ text "I run a highly-selective mentoring for high-potential engineers to be 🌏 world-class in their crafts. Mentee includes Fortune 500 companies engineers from Amazon, Redhat, SAP, etc." ]
         , linkNewTab [ href linktree ]
@@ -130,6 +138,7 @@ viewHireMe =
                 []
             ]
         , p [] [ i [] [ text "*) Payment doesn't guarantee acceptance. Refund applicable for rejected mentees." ] ]
+        , viewBreak
         , viewMyMentee
         ]
 
@@ -191,8 +200,20 @@ viewNav =
     div [ class "navigation" ]
         [ ul []
             [ li [] [ a [ href "#hire-me-mentor" ] [ text "Mentoring" ] ]
-            , li [] [ a [ href "#hire-me-cto" ] [ text "CTO Service" ] ]
+            , li [] [ a [ href "#hire-me-cto" ] [ text "fCTO" ] ]
             , li [] [ linkNewTab [ href "https://blog.mpj.io" ] [ text "Blog" ] ]
+            , li []
+                [ div [ class "dropdown" ]
+                    [ button [ class "dropbtn" ] [ text "More" ]
+                    , div [ class "dropdown-content" ]
+                        [ linkNewTab [ href "http://9tails.ninja" ] [ text "fCTO now!" ]
+                        , linkNewTab [ href "https://linktr.ee/yokulguy" ] [ text "Mentor me!" ]
+                        , linkNewTab [ href "https://www.youtube.com/channel/UCHxI3i2iobjq226ze-N-QBA" ] [ text "YouTube" ]
+                        , linkNewTab [ href "https://buidling.substack.com" ] [ text "Teman Stacks Podcast" ]
+                        , linkNewTab [ href "https://legacy.mpj.io" ] [ text "Legacy Blog" ]
+                        ]
+                    ]
+                ]
             ]
         ]
 
