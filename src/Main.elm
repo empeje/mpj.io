@@ -1,7 +1,6 @@
 module Main exposing (..)
 
 import Browser
-import Dict
 import Html exposing (Html, a, blockquote, br, button, div, h1, h2, h3, hr, i, iframe, img, li, node, p, text, ul)
 import Html.Attributes exposing (alt, attribute, class, dir, height, href, id, lang, src, style, target, title, width)
 
@@ -209,6 +208,8 @@ viewNav =
                         [ linkNewTab [ href "http://9tails.ninja" ] [ text "fCTO now!" ]
                         , linkNewTab [ href "https://linktr.ee/yokulguy" ] [ text "Mentor me!" ]
                         , linkNewTab [ href "https://www.youtube.com/channel/UCHxI3i2iobjq226ze-N-QBA" ] [ text "YouTube" ]
+                        , linkNewTab [ href "https://leanpub.com/u/empeje" ] [ text "Books" ]
+                        , linkNewTab [ href "https://scholar.google.com/citations?user=aRReMSEAAAAJ&hl=en" ] [ text "Google Scholar" ]
                         , linkNewTab [ href "https://buidling.substack.com" ] [ text "Teman Stacks Podcast" ]
                         , linkNewTab [ href "https://legacy.mpj.io" ] [ text "Legacy Blog" ]
                         ]
