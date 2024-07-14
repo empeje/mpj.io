@@ -3,6 +3,8 @@ module Main exposing (..)
 import Browser
 import Html exposing (Html, a, blockquote, br, button, div, h1, h2, h3, hr, i, iframe, img, li, node, p, text, ul)
 import Html.Attributes exposing (alt, attribute, class, dir, height, href, id, lang, src, style, target, title, width)
+import Task
+import Time
 
 
 
@@ -10,12 +12,12 @@ import Html.Attributes exposing (alt, attribute, class, dir, height, href, id, l
 
 
 type alias Model =
-    {}
+    { time : Time.Posix }
 
 
 init : ( Model, Cmd Msg )
 init =
-    ( {}, Cmd.none )
+    ( Model (Time.millisToPosix 0), getTime )
 
 
 linktree : String
@@ -29,11 +31,22 @@ linktree =
 
 type Msg
     = NoOp
+    | OnTime Time.Posix
+
+
+getTime : Cmd Msg
+getTime =
+    Task.perform OnTime Time.now
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
-    ( model, Cmd.none )
+    case msg of
+        NoOp ->
+            ( model, Cmd.none )
+
+        OnTime time ->
+            ( { model | time = time }, Cmd.none )
 
 
 
@@ -55,7 +68,7 @@ view model =
         , viewCoverages
         , viewCompanies
         , viewInvestments
-        , viewFooter
+        , viewFooter model
         ]
 
 
@@ -377,8 +390,15 @@ viewList data =
         data
 
 
-viewFooter =
-    p [ class "footer" ] [ text "Copyright (c) mpj.io 2021" ]
+viewFooter : Model -> Html msg
+viewFooter model =
+    let
+        zone =
+            Time.utc
+
+        -- or use a specific time zone
+    in
+    p [ class "footer" ] [ text ("Copyright (c) mpj.io " ++ String.fromInt (Time.toYear zone model.time)) ]
 
 
 linkNewTab : List (Html.Attribute msg) -> List (Html msg) -> Html msg
