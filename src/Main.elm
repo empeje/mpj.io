@@ -226,16 +226,18 @@ viewNav =
 
 viewVideo : Html Msg
 viewVideo =
-    iframe
-        [ width 560
-        , height 315
-        , src "https://www.youtube.com/embed/ZpMzprmWBfo"
-        , title ""
-        , attribute "frameborder" "0"
-        , attribute "allow" "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        , attribute "allowfullscreen" ""
+    div [ class "responsive-iframe-container" ]
+        [ iframe
+            [ width 560
+            , height 315
+            , src "https://www.youtube.com/embed/ZpMzprmWBfo"
+            , title ""
+            , attribute "frameborder" "0"
+            , attribute "allow" "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            , attribute "allowfullscreen" ""
+            ]
+            []
         ]
-        []
 
 
 viewBlogs : Html Msg
