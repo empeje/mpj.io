@@ -308,7 +308,8 @@ viewCoverages =
 
 talksData : List ( String, String )
 talksData =
-    [ ( "https://yavaconf.com/en/", "Wednesday, September 28, 2022. Ya!vaConf - Complete Web3 & Ethereun with Scala" )
+    [ ( "https://www.youtube.com/watch?v=n0U_7fK-YBY", "2023. Encode Club. Hologram AI Pitch")
+    , ( "https://yavaconf.com/en/", "Wednesday, September 28, 2022. Ya!vaConf - Complete Web3 & Ethereun with Scala" )
     , ( "https://www.meetup.com/scalawaw/events/288163720/", "Tuesday, September 6, 2022. ScalaWAW #24 - back to school - Web3 & Ethereun with Scala" )
     , ( "https://youtu.be/SXljxRDzfGY", "2022. Remote Skills Academy. DAO Masterclass (In Bahasa)" )
     , ( "https://youtu.be/hPCP_42jcH0", "2022. Republik Rupiah. Perspektif DEVELOPER Web3: Membangun Saat BEAR Market | Indonesia (In Bahasa)" )
