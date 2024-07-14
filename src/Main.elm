@@ -82,7 +82,10 @@ viewHeader =
                 ]
             , div [ style "flex" "3" ]
                 [ p [] [ text "I'm a 💻 software engineer, 🏗️ builder, and mentor to highly-motivated engineers." ]
-                , p [] [ text "Child of all nations 🌎 & Born and raised in Indonesia 🇮🇩." ]
+                , p []
+                    [ a [ href "https://www.goodreads.com/en/book/show/248069.Child_of_All_Nations", target "_blank" ] [ text "Child of all nations 🌎" ]
+                    , text " & Born and raised in Indonesia 🇮🇩."
+                    ]
                 , p [] [ text "Fun fact: I'm a big fan of 🚀🦝 Rocket Raccoon." ]
                 ]
             ]
