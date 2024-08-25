@@ -127,7 +127,7 @@ viewHireMe =
             , li [] [ text "A confidential NFT marketplace" ]
             , li [] [ linkNewTab [ href "https://tryhologram.art" ] [ text "Hologram AI" ] ]
             ]
-        , p [] [ text "If you're a business owner who wants to bring your company's tech to the next level, consult with me at a (dot) mappuji (at) gmail (dot) com." ]
+        , p [] [ text "If you're a business owner who wants to bring your company's tech to the next level, consult with me at zing (dot) passers0k (at) icloud.com." ]
         , viewBreak
         , h2 [ id "hire-me-mentor" ] [ text "Exclusive Mentoring" ]
         , p [] [ text "I run a highly-selective mentoring for high-potential engineers to be 🌏 world-class in their crafts. Mentee includes Fortune 500 companies engineers from Amazon, Redhat, SAP, etc." ]
