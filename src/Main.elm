@@ -257,6 +257,7 @@ viewBlogs =
     let
         data =
             [ ( "https://medium.com/@empeje/subscribe", "Regular Writing on Tech, Wisdom & Philosophy—Medium" )
+            , ( "https://abducodigos.substack.com", "Abdu Códigos Newsletter" )
             , ( "https://twitter.com/@YoKulGuy", "Not-so Regular tweet on X" )
             , ( "https://www.codementor.io/@amappuji#:~:text=Community%20Posts", "Popular Blog on Codementor" )
             , ( "https://legacy.mpj.io", "Legacy Blog (2018-2020)" )
@@ -308,7 +309,7 @@ viewCoverages =
 
 talksData : List ( String, String )
 talksData =
-    [ ( "https://www.youtube.com/watch?v=n0U_7fK-YBY", "2023. Encode Club. Hologram AI Pitch")
+    [ ( "https://www.youtube.com/watch?v=n0U_7fK-YBY", "2023. Encode Club. Hologram AI Pitch" )
     , ( "https://yavaconf.com/en/", "Wednesday, September 28, 2022. Ya!vaConf - Complete Web3 & Ethereun with Scala" )
     , ( "https://www.meetup.com/scalawaw/events/288163720/", "Tuesday, September 6, 2022. ScalaWAW #24 - back to school - Web3 & Ethereun with Scala" )
     , ( "https://youtu.be/SXljxRDzfGY", "2022. Remote Skills Academy. DAO Masterclass (In Bahasa)" )
