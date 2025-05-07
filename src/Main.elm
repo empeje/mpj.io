@@ -60,7 +60,6 @@ view model =
         , viewVideo
         , viewRecentEvent
         , viewBreak
-        , viewBreak
         , viewBlogs
         , viewPublications
         , viewTalks
