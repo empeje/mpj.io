@@ -60,7 +60,6 @@ view model =
         , viewVideo
         , viewRecentEvent
         , viewBreak
-        , viewHireMe
         , viewBreak
         , viewBlogs
         , viewPublications
@@ -214,9 +213,7 @@ viewNav : Html Msg
 viewNav =
     div [ class "navigation" ]
         [ ul []
-            [ li [] [ a [ href "#hire-me-mentor" ] [ text "Mentoring" ] ]
-            , li [] [ a [ href "#hire-me-cto" ] [ text "fCTO" ] ]
-            , li [] [ linkNewTab [ href "https://blog.mpj.io" ] [ text "Blog" ] ]
+            [ li [] [ linkNewTab [ href "https://blog.mpj.io" ] [ text "Blog" ] ]
             , li []
                 [ div [ class "dropdown" ]
                     [ button [ class "dropbtn" ] [ text "More" ]
