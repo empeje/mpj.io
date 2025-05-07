@@ -221,7 +221,7 @@ viewNav =
                         , linkNewTab [ href "https://www.youtube.com/channel/UCHxI3i2iobjq226ze-N-QBA" ] [ text "YouTube" ]
                         , linkNewTab [ href "https://leanpub.com/u/empeje" ] [ text "Books" ]
                         , linkNewTab [ href "https://scholar.google.com/citations?user=aRReMSEAAAAJ&hl=en" ] [ text "Google Scholar" ]
-                        , linkNewTab [ href "https://buidling.substack.com" ] [ text "Teman Stacks Podcast" ]
+                        , linkNewTab [ href "https://com6.substack.com" ] [ text "COM6 Serial Dispatch" ]
                         , linkNewTab [ href "https://www.meetup.com/members/279285007/" ] [ text "Meetup.com" ]
                         , linkNewTab [ href "https://lu.ma/u/mpj" ] [ text "Lu.ma" ]
                         , linkNewTab [ href "https://legacy.mpj.io" ] [ text "Legacy Blog" ]
