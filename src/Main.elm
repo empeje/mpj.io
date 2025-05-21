@@ -253,8 +253,7 @@ viewBlogs =
     let
         data =
             [ ( "https://medium.com/@empeje/subscribe", "Regular Writing on Tech, Wisdom & Philosophy—Medium" )
-            , ( "https://abducodigos.substack.com", "Abdu Códigos Newsletter" )
-            , ( "https://twitter.com/@YoKulGuy", "Not-so Regular tweet on X" )
+            , ( "https://com6.substack.com", "COM6: The Serial Dispatch from Abdu Códigos" )
             , ( "https://www.codementor.io/@amappuji#:~:text=Community%20Posts", "Popular Blog on Codementor" )
             , ( "https://legacy.mpj.io", "Legacy Blog (2018-2020)" )
             ]
