@@ -1,7 +1,7 @@
 module Main exposing (..)
 
 import Browser
-import Html exposing (Html, a, blockquote, br, button, div, h1, h2, h3, hr, i, iframe, img, li, node, p, text, ul)
+import Html exposing (Html, a, blockquote, br, button, div, h1, h2, h3, hr, i, iframe, img, li, node, p, text, ul, em)
 import Html.Attributes exposing (alt, attribute, class, dir, height, href, id, lang, src, style, target, title, width)
 import Task
 import Time
@@ -58,6 +58,7 @@ view model =
     div [ class "container content" ]
         [ viewHeader
         , viewVideo
+        , viewHireMe
         , viewRecentEvent
         , viewBreak
         , viewBlogs
@@ -118,7 +119,7 @@ viewHireMe =
     div [ class "hire-me" ]
         [ h1 [ id "hire-me" ] [ text "Hire Me!" ]
         , h2 [ id "hire-me-cto" ] [ text "Fractional/Consulting CTO" ]
-        , p [] [ text "Beside my full-time role, I also currently a fractional Chief Technology Officer (fCTO) to highly-selected companies! I work with companies that need technical guidance for tech products who wants to go 🌏 world-class, from complex web applications to data science, AI, and blockchain even before it was cool. I work with companies top management to translate the business strategy into a solid tech roadmap." ]
+        , p [] [ text "Beside my full-time role, I serve as a fractional Chief Technology Officer (fCTO) to highly-selected companies from time to time! I work with companies that need technical guidance for tech products who wants to go 🌏 world-class, from complex web applications to data science, AI, and blockchain even before it was cool. I work with companies top management to translate the business strategy into a solid tech roadmap." ]
         , p [] [ text "Here are some curated list of companies/startups I have advised as their fractional CTO." ]
         , ul []
             [ li [] [ text "A confidential mining company" ]
@@ -152,17 +153,26 @@ viewHireMe =
             ]
         , p [] [ i [] [ text "*) Payment doesn't guarantee acceptance. Refund applicable for rejected mentees." ] ]
         , viewBreak
-        , viewMyMentee
+        , viewMyMentees
         ]
 
-
-viewMyMentee : Html Msg
-viewMyMentee =
+viewEdo : Html Msg
+viewEdo =
     div []
-        [ h2 [ id "mentee-works" ] [ text "Mentee works" ]
-        , p [] [ text "Here are some examples of the work that has been done by my mentees." ]
-        , h3 [] [ text "CI/CD Gitlab pipeline by Aurélien Lair" ]
-        , blockquote
+    [ h3 [] [ text "Tech Interview Prep - Edo" ]
+    , p [] [ em [] [text """I recently have the privilege of being mentored in a 1-on-1 session with MPJ, and i’am incredibly grateful for the experience. He shared insightful tips and tricks on how to win the hearts of HR and hiring managers during interviews, and also gave me valuable feedback on my CV.
+
+From that session, i realized there were many aspects of my CV and self-presentation that needed improvement, with his guidance i was able to refine my CV and develop a better approach to interviews.
+
+As a result, i started receiving multiple interview invitations including opportunities offering relocation to Europe and i'am now excited to share that I have landed a fulltime remote role at a multinational company based in Singapore.
+
+Thank you so much, MPJ, for your support and mentorship, it truly made a real difference in my journey!""" ]]]
+
+viewAurelien : Html Msg
+viewAurelien =
+    div []
+    [ h3 [] [ text "CI/CD Gitlab pipeline - Aurélien Lair" ]
+    , blockquote
             [ class "twitter-tweet"
             ]
             [ p
@@ -204,7 +214,16 @@ viewMyMentee =
             , src "https://platform.twitter.com/widgets.js"
             , attribute "charset" "utf-8"
             ]
-            []
+            []]
+
+
+viewMyMentees : Html Msg
+viewMyMentees =
+    div []
+        [ h2 [ id "mentee-works" ] [ text "Mentee works" ]
+        , p [] [ text "Here are some examples of the work that has been done by my mentees." ]
+        , viewAurelien
+        , viewEdo
         ]
 
 
