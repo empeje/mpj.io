@@ -57,11 +57,12 @@ view : Model -> Html Msg
 view model =
     div [ class "container content" ]
         [ viewHeader
-        , viewVideo
+        , viewVideo "https://www.youtube.com/embed/ZpMzprmWBfo"
         , viewHireMe
         , viewRecentEvent
         , viewBreak
         , viewBlogs
+        , viewVideo "https://www.youtube.com/embed/lFZ6e4Plfb4?si=ZproA6U2rNkDchlH&amp;start=14"
         , viewPublications
         , viewTalks
         , viewCoverages
@@ -249,15 +250,15 @@ viewNav =
                 ]
             ]
         ]
+-- https://www.youtube.com/watch?v=lFZ6e4Plfb4&t=14s
 
-
-viewVideo : Html Msg
-viewVideo =
+viewVideo : String -> Html Msg
+viewVideo youtubeLink =
     div [ class "responsive-iframe-container" ]
         [ iframe
             [ width 560
             , height 315
-            , src "https://www.youtube.com/embed/ZpMzprmWBfo"
+            , src youtubeLink
             , title ""
             , attribute "frameborder" "0"
             , attribute "allow" "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
