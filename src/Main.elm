@@ -96,8 +96,8 @@ viewHeader =
             , div [ style "flex" "3" ]
                 [ p [] [ text "I'm a 💻 software engineer, 🏗️ builder, and mentor to highly-motivated engineers." ]
                 , p []
-                    [ a [ href "https://www.goodreads.com/en/book/show/248069.Child_of_All_Nations", target "_blank" ] [ text "Child of all nations 🌎" ]
-                    , text " & Born and raised in Indonesia 🇮🇩."
+                    [ a [ href "https://www.goodreads.com/en/book/show/248069.Child_of_All_Nations", target "_blank" ] [ text "Child of all nations 🌎 (not mine but important)" ]
+                    , text " & Indonesian-rooted 🇮🇩, globally respected 🌏."
                     ]
                 , p [] [ text "Fun fact: I'm a big fan of 🚀🦝 Rocket Raccoon." ]
                 ]
@@ -118,44 +118,47 @@ viewRecentEvent =
 viewHireMe : Html Msg
 viewHireMe =
     div [ class "hire-me" ]
-        [ h1 [ id "hire-me" ] [ text "Hire Me!" ]
-        , h2 [ id "hire-me-cto" ] [ text "Fractional/Consulting CTO" ]
-        , p [] [ text "Beside my full-time role, I serve as a fractional Chief Technology Officer (fCTO) to highly-selected companies from time to time! I work with companies that need technical guidance for tech products who wants to go 🌏 world-class, from complex web applications to data science, AI, and blockchain even before it was cool. I work with companies top management to translate the business strategy into a solid tech roadmap." ]
-        , p [] [ text "Here are some curated list of companies/startups I have advised as their fractional CTO." ]
-        , ul []
-            [ li [] [ text "A confidential mining company" ]
-            , li [] [ text "A confidential NFT marketplace" ]
-            , li [] [ linkNewTab [ href "https://tryhologram.art" ] [ text "Hologram AI" ] ]
+        (List.append
+            [ h1 [ id "hire-me" ] [ text "Hire Me!" ]
+            , h2 [ id "hire-me-cto" ] [ text "Fractional/Consulting CTO" ]
+            , p [] [ text "Beside my full-time role, I serve as a fractional Chief Technology Officer (fCTO) to highly-selected companies from time to time! I work with companies that need technical guidance for tech products who wants to go 🌏 world-class, from complex web applications to data science, AI, and blockchain even before it was cool. I work with companies top management to translate the business strategy into a solid tech roadmap." ]
+            , p [] [ text "Here are some curated list of companies/startups I have advised as their fractional CTO." ]
             ]
-        , p [] [ text "If you're a business owner who wants to bring your company's tech to the next level, consult with me at zing (dot) passers0k (at) icloud.com." ]
-        , viewBreak
-        , h2 [ id "hire-me-mentor" ] [ text "Exclusive Mentoring" ]
-        , p [] [ text "I run a highly-selective mentoring for high-potential engineers to be 🌏 world-class in their crafts. Mentee includes Fortune 500 companies engineers from Amazon, Redhat, SAP, etc." ]
-        , linkNewTab [ href linktree ]
-            [ imgBadge
-                [ src "1-mentoring-package-private.png"
-                , alt "1 Hour Private Mentoring with world-class mentor (5 Star in Codementor). Special price only $70."
-                ]
-                []
-            ]
-        , linkNewTab [ href linktree ]
-            [ imgBadge
-                [ src "2-mentoring-package-exclusive.png"
-                , alt "8 x 1 Hour Exclusive Mentoring with world-class mentor (5 Star in Codementor). All for only $500."
-                ]
-                []
-            ]
-        , linkNewTab [ href linktree ]
-            [ imgBadge
-                [ src "3-mentoring-package-complete.png"
-                , alt "8 x 2 Hour Complete, Exclusive and & Personalized Mentoring with world-class mentor (5 Star in Codementor). Get your study plan now! All exclusive benefits for only $2000."
-                ]
-                []
-            ]
-        , p [] [ i [] [ text "*) Payment doesn't guarantee acceptance. Refund applicable for rejected mentees." ] ]
-        , viewBreak
-        , viewMyMentees
-        ]
+            (List.append
+                (viewList 
+                    [ ( "#", "A confidential mining company" )
+                    , ( "#", "A confidential NFT marketplace" )  
+                    , ( "https://hologram.kul.to", "Hologram AI" )
+                    ])
+                [ p [] [ text "If you're a business owner who wants to bring your company's tech to the next level, consult with me at zing (dot) passers0k (at) icloud.com." ]
+                , viewBreak
+                , h2 [ id "hire-me-mentor" ] [ text "Exclusive Mentoring" ]
+                , p [] [ text "I run a highly-selective mentoring for high-potential engineers to be 🌏 world-class in their crafts. Mentee includes Fortune 500 companies engineers from Amazon, Redhat, SAP, etc." ]
+                , linkNewTab [ href linktree ]
+                    [ imgBadge
+                        [ src "1-mentoring-package-private.png"
+                        , alt "1 Hour Private Mentoring with world-class mentor (5 Star in Codementor). Special price only $70."
+                        ]
+                        []
+                    ]
+                , linkNewTab [ href linktree ]
+                    [ imgBadge
+                        [ src "2-mentoring-package-exclusive.png"
+                        , alt "8 x 1 Hour Exclusive Mentoring with world-class mentor (5 Star in Codementor). All for only $500."
+                        ]
+                        []
+                    ]
+                , linkNewTab [ href linktree ]
+                    [ imgBadge
+                        [ src "3-mentoring-package-complete.png"
+                        , alt "8 x 2 Hour Complete, Exclusive and & Personalized Mentoring with world-class mentor (5 Star in Codementor). Get your study plan now! All exclusive benefits for only $2000."
+                        ]
+                        []
+                    ]
+                , p [] [ i [] [ text "*) Payment doesn't guarantee acceptance. Refund applicable for rejected mentees." ] ]
+                , viewBreak
+                , viewMyMentees
+                ]))
 
 viewEdo : Html Msg
 viewEdo =
@@ -378,16 +381,17 @@ viewInvestments : Html Msg
 viewInvestments =
     let
         data =
-            [ ( "https://republic.co/abdurrachman-mappuji", "Gumroad" )
-            , ( "https://kyndoo.com/", "Kyndoo (Acquired by CIPIO.ai)" )
-            , ( "https://www.airthium.com/", "Airthium (YC S17)" )
-            , ( "https://www.innamed.com/", "InnaMed (YC W17)" )
+            [ ( "https://www.ycombinator.com/companies/aptdeco", "AptDeco (YC W14)" )
+            , ( "https://www.ycombinator.com/companies/airthium", "Airthium (YC S17)" )
+            , ( "https://www.ycombinator.com/companies/innamed", "InnaMed (YC W17)" )
+            , ( "https://earnestcapital.com/", "Earnest Capital" )
+            , ( "https://en.aktpictures.com/", "Akt Pictures - When I Was a Human" )
+            , ( "https://republic.co/abdurrachman-mappuji", "Gumroad" )
             , ( "https://legionm.com/", "Legion M" )
             , ( "https://lppfusion.com/", "LPPFusion" )
             , ( "https://vinsocial.co/", "Vin Social" )
-            , ( "https://en.aktpictures.com/", "Akt Pictures - When I Was a Human" )
-            , ( "https://arc.dev/", "Arc (Previously Codementor, Acquired)" )
-            , ( "https://earnestcapital.com/", "Earnest Capital" )
+            , ( "https://arc.dev/", "Arc (Previously Codementor, Exited to Toptal)" )
+            , ( "https://kyndoo.com/", "Kyndoo (Exited to CIPIO.ai)" )
             ]
     in
     List.append
