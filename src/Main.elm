@@ -252,7 +252,7 @@ viewNav =
                     [ button [ class "dropbtn" ] [ text "More" ]
                     , div [ class "dropdown-content" ]
                         [ linkNewTab [ href "https://com6.substack.com" ] [ text "COM6 Dispatch" ]
-                        , linkNewTab [ href "https://com6.substack.com" ] [ text "LawTech Bulletin" ]
+                        , linkNewTab [ href "https://lawtech.mpj.io" ] [ text "LawTech Bulletin" ]
                         , linkNewTab [ href "https://www.youtube.com/channel/UCHxI3i2iobjq226ze-N-QBA" ] [ text "YouTube" ]
                         , linkNewTab [ href "https://www.meetup.com/members/279285007/" ] [ text "Meetup.com" ]
                         , linkNewTab [ href "https://lu.ma/u/mpj" ] [ text "Lu.ma" ]
