@@ -1,8 +1,9 @@
 module Main exposing (..)
 
 import Browser
-import Html exposing (Html, a, blockquote, br, button, div, h1, h2, h3, h4, hr, i, iframe, img, li, node, p, text, ul, em)
-import Html.Attributes exposing (alt, attribute, class, dir, height, href, id, lang, src, style, target, title, width)
+import Html exposing (Html, a, blockquote, br, button, div, h1, h2, h3, h4, hr, i, iframe, img, input, li, node, p, table, tbody, td, text, th, thead, tr, ul, em)
+import Html.Attributes exposing (alt, attribute, class, dir, height, href, id, lang, placeholder, src, style, target, title, type_, value, width)
+import Html.Events exposing (onInput)
 import Task
 import Time
 
@@ -12,12 +13,14 @@ import Time
 
 
 type alias Model =
-    { time : Time.Posix }
+    { time : Time.Posix
+    , referralsFilter : String
+    }
 
 
 init : ( Model, Cmd Msg )
 init =
-    ( Model (Time.millisToPosix 0), getTime )
+    ( { time = Time.millisToPosix 0, referralsFilter = "" }, getTime )
 
 
 linktree : String
@@ -32,6 +35,7 @@ linktree =
 type Msg
     = NoOp
     | OnTime Time.Posix
+    | UpdateReferralsFilter String
 
 
 getTime : Cmd Msg
@@ -47,6 +51,9 @@ update msg model =
 
         OnTime time ->
             ( { model | time = time }, Cmd.none )
+
+        UpdateReferralsFilter filter ->
+            ( { model | referralsFilter = filter }, Cmd.none )
 
 
 
@@ -68,6 +75,8 @@ view model =
         , viewCoverages
         , viewCompanies
         , viewInvestments
+        , viewBreak
+        , viewReferrals model
         , viewFooter model
         ]
 
@@ -259,6 +268,7 @@ viewNav =
                         , linkNewTab [ href "https://leanpub.com/u/empeje" ] [ text "Books" ]
                         , linkNewTab [ href "https://scholar.google.com/citations?user=aRReMSEAAAAJ&hl=en" ] [ text "Google Scholar" ]
                         , linkNewTab [ href "https://legacy.mpj.io" ] [ text "Legacy Blog" ]
+                        , a [ href "#referrals" ] [ text "Offers" ]
                         ]
                     ]
                 ]
@@ -456,6 +466,83 @@ pickBorder index =
 
     else
         "blue-border"
+
+
+---- REFERRALS ----
+
+
+type alias ReferralLink =
+    { productName : String
+    , referralUrl : String
+    , benefit : String
+    }
+
+
+referralData : List ReferralLink
+referralData =
+    [ { productName = "Perplexity"
+      , referralUrl = "https://www.perplexity.ai/referrals/2QC16RJD"
+      , benefit = "One month Pro for free"
+      }
+    ]
+
+
+viewReferrals : Model -> Html Msg
+viewReferrals model =
+    let
+        filteredLinks =
+            referralData
+                |> List.filter (\link ->
+                    String.contains (String.toLower model.referralsFilter) (String.toLower link.productName)
+                )
+    in
+    div [ id "referrals" ]
+        [ h2 [] [ text "Referrals" ]
+        , p [] [ text "Here are some great services I use and recommend. Sign up through these links to get special benefits!" ]
+        , viewReferralsSearchFilter model.referralsFilter
+        , viewReferralsTable filteredLinks
+        , p [ class "disclaimer" ] [ text "* Benefits may vary and are subject to the terms and conditions of each service provider." ]
+        ]
+
+
+viewReferralsSearchFilter : String -> Html Msg
+viewReferralsSearchFilter searchFilter =
+    div [ class "search-container" ]
+        [ input
+            [ type_ "text"
+            , placeholder "Search products..."
+            , value searchFilter
+            , onInput UpdateReferralsFilter
+            , class "search-input"
+            ]
+            []
+        ]
+
+
+viewReferralsTable : List ReferralLink -> Html Msg
+viewReferralsTable links =
+    table [ class "referral-table" ]
+        [ thead []
+            [ tr []
+                [ th [] [ text "Product Name" ]
+                , th [] [ text "Referral Link" ]
+                , th [] [ text "Benefit" ]
+                ]
+            ]
+        , tbody []
+            (List.indexedMap viewReferralTableRow links)
+        ]
+
+
+viewReferralTableRow : Int -> ReferralLink -> Html Msg
+viewReferralTableRow index link =
+    tr [ class <| pickBorder index ]
+        [ td [ class "product-name" ] [ text link.productName ]
+        , td [ class "referral-link" ]
+            [ linkNewTab [ href link.referralUrl, class "referral-button" ] [ text "Sign Up" ]
+            ]
+        , td [ class "benefit" ] [ text link.benefit ]
+        ]
 
 
 
