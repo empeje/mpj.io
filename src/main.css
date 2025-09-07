@@ -158,3 +158,75 @@ a.deco-none, a.deco-none:hover {
     position: relative;
   }
 }
+
+/* Mentee showcase styling */
+.mentee-showcase {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.mentee-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 0;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: none;
+  transition: none;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+}
+
+.mentee-card:hover {
+  box-shadow: none;
+}
+
+.mentee-card-title {
+  margin: 0 0 15px 0;
+  color: #293c4b;
+  font-weight: bold;
+  border-bottom: 2px solid #00917C;
+  padding-bottom: 10px;
+  height: 1.2em;
+  flex-shrink: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.mentee-card-content {
+  line-height: 1.6;
+}
+
+.mentee-card-content em {
+  font-style: italic;
+  color: #555;
+}
+
+.mentee-card-content blockquote {
+  margin: 0;
+  padding: 0;
+}
+
+/* Edo testimonial styling */
+.edo-testimonial {
+  font-style: italic;
+  font-size: 1.1em;
+  color: #555;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  margin: 15px 0;
+  padding: 20px;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .mentee-showcase {
+    flex-direction: row;
+    gap: 30px;
+  }
+  
+  .mentee-card {
+    flex: 1;
+  }
+}

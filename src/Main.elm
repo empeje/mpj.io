@@ -1,7 +1,7 @@
 module Main exposing (..)
 
 import Browser
-import Html exposing (Html, a, blockquote, br, button, div, h1, h2, h3, hr, i, iframe, img, li, node, p, text, ul, em)
+import Html exposing (Html, a, blockquote, br, button, div, h1, h2, h3, h4, hr, i, iframe, img, li, node, p, text, ul, em)
 import Html.Attributes exposing (alt, attribute, class, dir, height, href, id, lang, src, style, target, title, width)
 import Task
 import Time
@@ -163,20 +163,20 @@ viewHireMe =
 viewEdo : Html Msg
 viewEdo =
     div []
-    [ h3 [] [ text "Tech Interview Prep - Edo" ]
-    , p [] [ em [] [text """I recently have the privilege of being mentored in a 1-on-1 session with MPJ, and i’am incredibly grateful for the experience. He shared insightful tips and tricks on how to win the hearts of HR and hiring managers during interviews, and also gave me valuable feedback on my CV.
-
-From that session, i realized there were many aspects of my CV and self-presentation that needed improvement, with his guidance i was able to refine my CV and develop a better approach to interviews.
-
-As a result, i started receiving multiple interview invitations including opportunities offering relocation to Europe and i'am now excited to share that I have landed a fulltime remote role at a multinational company based in Singapore.
-
-Thank you so much, MPJ, for your support and mentorship, it truly made a real difference in my journey!""" ]]]
+        [ p [] 
+            [ linkNewTab [ href "https://www.linkedin.com/in/wihlarko-prasdegdho" ] [ text "Wihlarko Prasdegdho" ]
+            , text " - Senior Engineer at Tridorian "
+            , linkNewTab [ href "https://www.linkedin.com/in/wihlarko-prasdegdho" ] [ text "↗" ]
+            ]
+        , blockquote [ class "edo-testimonial" ] 
+            [ text "\"I recently have the privilege of being mentored in a 1-on-1 session with MPJ, and i'am incredibly grateful for the experience. He shared insightful tips and tricks on how to win the hearts of HR and hiring managers during interviews, and also gave me valuable feedback on my CV. From that session, i realized there were many aspects of my CV and self-presentation that needed improvement, with his guidance i was able to refine my CV and develop a better approach to interviews. As a result, i started receiving multiple interview invitations including opportunities offering relocation to Europe and i'am now excited to share that I have landed a fulltime remote role at a multinational company based in Singapore. Thank you so much, MPJ, for your support and mentorship, it truly made a real difference in my journey!\""
+            ]
+        ]
 
 viewAurelien : Html Msg
 viewAurelien =
     div []
-    [ h3 [] [ text "CI/CD Gitlab pipeline - Aurélien Lair" ]
-    , blockquote
+        [ blockquote
             [ class "twitter-tweet"
             ]
             [ p
@@ -218,7 +218,16 @@ viewAurelien =
             , src "https://platform.twitter.com/widgets.js"
             , attribute "charset" "utf-8"
             ]
-            []]
+            []
+        ]
+
+
+viewMenteeCard : String -> Html Msg -> Html Msg
+viewMenteeCard title content =
+    div [ class "mentee-card" ]
+        [ h4 [ class "mentee-card-title" ] [ text title ]
+        , div [ class "mentee-card-content" ] [ content ]
+        ]
 
 
 viewMyMentees : Html Msg
@@ -226,8 +235,10 @@ viewMyMentees =
     div []
         [ h2 [ id "mentee-works" ] [ text "Mentee works" ]
         , p [] [ text "Here are some examples of the work that has been done by my mentees." ]
-        , viewAurelien
-        , viewEdo
+        , div [ class "mentee-showcase" ]
+            [ viewMenteeCard "CI/CD Gitlab Pipeline - Aurélien Lair" viewAurelien
+            , viewMenteeCard "Tech Interview Success - Edo" viewEdo
+            ]
         ]
 
 
