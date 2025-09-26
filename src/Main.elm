@@ -332,7 +332,7 @@ viewCoverages : Html Msg
 viewCoverages =
     let
         data =
-            [ ( "https://issuu.com/lpktaftugm/docs/sonar", "Belajar Kepemimpinan. 2017. Engineering Journal. Sonar - Majalah Ilmia Populer LPKTA FT UGM" )
+            [ ( "https://imaginecup.microsoft.com/en-us/competition/17382", "2016 Hello Cloud Challenge Winner. 2016. Microsoft Imagine Cup" )
             , ( "https://rizafahmi.com/2018/07/12/rangkuman-acara-devc-jakarta-build-day-2018/", "Rangkuman Acara Developer Circles Jakarta Build Day. 2018. Facebook Developer Indonesia" )
             , ( "https://medium.com/compfest/software-engineering-academy-camp-1-berbagai-cara-untuk-membangun-software-481055ad70d1", "Software Engineering Academy Camp 1: Berbagai Cara untuk Membangun Software. 2021. COMPFEST 13 - Universitas Indonesia" )
             , ( "https://twitter.com/StacksOrg/status/1647374496620314629?s=20", "Stacks Chapter. 2023. Stacks Open Internet Foundation" )
