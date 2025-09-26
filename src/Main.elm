@@ -1,7 +1,7 @@
 module Main exposing (..)
 
 import Browser
-import Html exposing (Html, a, blockquote, br, button, div, h1, h2, h3, h4, hr, i, iframe, img, input, li, node, p, table, tbody, td, text, th, thead, tr, ul, em)
+import Html exposing (Html, a, blockquote, br, button, div, em, h1, h2, h3, h4, hr, i, iframe, img, input, li, node, p, table, tbody, td, text, th, thead, tr, ul)
 import Html.Attributes exposing (alt, attribute, class, dir, height, href, id, lang, placeholder, src, style, target, title, type_, value, width)
 import Html.Events exposing (onInput)
 import Task
@@ -105,9 +105,7 @@ viewHeader =
             , div [ style "flex" "3" ]
                 [ p [] [ text "I'm a 💻 software engineer, 🏗️ builder, and mentor to highly-motivated engineers." ]
                 , p []
-                    [ a [ href "https://www.goodreads.com/en/book/show/248069.Child_of_All_Nations", target "_blank" ] [ text "Child of all nations 🌎 (not mine but important)" ]
-                    , text " & Indonesian-rooted 🇮🇩, globally respected 🌏."
-                    ]
+                    [ a [ href "https://www.goodreads.com/en/book/show/248069.Child_of_All_Nations", target "_blank" ] [ text "Child of all nations 🌎 (not mine but important)" ] ]
                 , p [] [ text "Fun fact: I'm a big fan of 🚀🦝 Rocket Raccoon." ]
                 ]
             ]
@@ -134,11 +132,12 @@ viewHireMe =
             , p [] [ text "Here are some curated list of companies/startups I have advised as their fractional CTO." ]
             ]
             (List.append
-                (viewList 
+                (viewList
                     [ ( "#", "A confidential mining company" )
-                    , ( "#", "A confidential NFT marketplace" )  
+                    , ( "#", "A confidential NFT marketplace" )
                     , ( "https://hologram.kul.to", "Hologram AI" )
-                    ])
+                    ]
+                )
                 [ p [] [ text "If you're a business owner who wants to bring your company's tech to the next level, consult with me at zing (dot) passers0k (at) icloud.com." ]
                 , viewBreak
                 , h2 [ id "hire-me-mentor" ] [ text "Exclusive Mentoring" ]
@@ -167,20 +166,24 @@ viewHireMe =
                 , p [] [ i [] [ text "*) Payment doesn't guarantee acceptance. Refund applicable for rejected mentees." ] ]
                 , viewBreak
                 , viewMyMentees
-                ]))
+                ]
+            )
+        )
+
 
 viewEdo : Html Msg
 viewEdo =
     div []
-        [ p [] 
+        [ p []
             [ linkNewTab [ href "https://www.linkedin.com/in/wihlarko-prasdegdho" ] [ text "Wihlarko Prasdegdho" ]
             , text " - Senior Engineer at Tridorian "
             , linkNewTab [ href "https://www.linkedin.com/in/wihlarko-prasdegdho" ] [ text "↗" ]
             ]
-        , blockquote [ class "edo-testimonial" ] 
+        , blockquote [ class "edo-testimonial" ]
             [ text "\"I recently have the privilege of being mentored in a 1-on-1 session with MPJ, and i'am incredibly grateful for the experience. He shared insightful tips and tricks on how to win the hearts of HR and hiring managers during interviews, and also gave me valuable feedback on my CV. From that session, i realized there were many aspects of my CV and self-presentation that needed improvement, with his guidance i was able to refine my CV and develop a better approach to interviews. As a result, i started receiving multiple interview invitations including opportunities offering relocation to Europe and i'am now excited to share that I have landed a fulltime remote role at a multinational company based in Singapore. Thank you so much, MPJ, for your support and mentorship, it truly made a real difference in my journey!\""
             ]
         ]
+
 
 viewAurelien : Html Msg
 viewAurelien =
@@ -274,7 +277,11 @@ viewNav =
                 ]
             ]
         ]
+
+
+
 -- https://www.youtube.com/watch?v=lFZ6e4Plfb4&t=14s
+
 
 viewVideo : String -> Html Msg
 viewVideo youtubeLink =
@@ -468,6 +475,7 @@ pickBorder index =
         "blue-border"
 
 
+
 ---- REFERRALS ----
 
 
@@ -492,9 +500,10 @@ viewReferrals model =
     let
         filteredLinks =
             referralData
-                |> List.filter (\link ->
-                    String.contains (String.toLower model.referralsFilter) (String.toLower link.productName)
-                )
+                |> List.filter
+                    (\link ->
+                        String.contains (String.toLower model.referralsFilter) (String.toLower link.productName)
+                    )
     in
     div [ id "referrals" ]
         [ h2 [] [ text "Referrals" ]
