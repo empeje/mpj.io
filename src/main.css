@@ -58,7 +58,7 @@ html, body, #root {
 .content {
   font-family: var(--font-sans);
   font-size: 120%;
-  color: #293c4b;
+  color: var(--color-accent);
 }
 
 .logo {
@@ -78,37 +78,43 @@ a.deco-none, a.deco-none:hover {
   text-decoration:none;
 }
 
-.red-border, .green-border, .blue-border {
-  border-left: 5px solid darkcyan;
+/* Border base styles and color variants */
+.border,
+.red-border,
+.green-border,
+.blue-border {
+  border-left: 5px solid;
   margin-left: 0;
   padding-left: 10px;
 }
 
+.red-border {
+  border-color: var(--color-danger);
+}
+
 .red-border:hover {
-  background-color: #C15050;
+  background-color: var(--color-danger);
   color: white;
 }
 
-.red-border {
-  border-color: #C15050;
+.green-border {
+  border-color: var(--color-primary);
 }
 
 .green-border:hover {
-  background-color: #00917C;
-  color: white;
-}
-.green-border {
-  border-color: #00917C;
-}
-
-.blue-border:hover {
-  background-color: #28527A;
+  background-color: var(--color-primary);
   color: white;
 }
 
 .blue-border {
-  border-color: #28527A;
+  border-color: var(--color-blue);
 }
+
+.blue-border:hover {
+  background-color: var(--color-blue);
+  color: white;
+}
+
 
 /* Style the dropdown container */
 .dropdown {
@@ -118,7 +124,7 @@ a.deco-none, a.deco-none:hover {
 
 /* Style the dropdown button */
 .dropbtn {
-  background-color: #00917C;
+  background-color: var(--color-primary);
   color: white;
   padding: 10px;
   font-size: 16px;
@@ -212,9 +218,9 @@ a.deco-none, a.deco-none:hover {
 
 .mentee-card-title {
   margin: 0 0 15px 0;
-  color: #293c4b;
+  color: var(--color-accent);
   font-weight: bold;
-  border-bottom: 2px solid #00917C;
+  border-bottom: 2px solid var(--color-primary);
   padding-bottom: 10px;
   height: 1.2em;
   flex-shrink: 0;
@@ -276,14 +282,14 @@ a.deco-none, a.deco-none:hover {
   border: 2px solid #e0e0e0;
   border-radius: 4px;
   font-family: var(--font-sans);
-  color: #293c4b;
+  color: var(--color-accent);
   background-color: #ffffff;
   transition: border-color 0.3s ease;
 }
 
 .search-input:focus {
   outline: none;
-  border-color: #00917C;
+  border-color: var(--color-primary);
 }
 
 .referral-table {
@@ -304,8 +310,8 @@ a.deco-none, a.deco-none:hover {
 .referral-table th {
   background-color: #f8f9fa;
   font-weight: bold;
-  color: #293c4b;
-  border-bottom: 2px solid #00917C;
+  color: var(--color-accent);
+  border-bottom: 2px solid var(--color-primary);
 }
 
 .referral-table tr:hover {
@@ -314,7 +320,7 @@ a.deco-none, a.deco-none:hover {
 
 .product-name {
   font-weight: bold;
-  color: #293c4b;
+  color: var(--color-accent);
   min-width: 120px;
 }
 
@@ -324,7 +330,7 @@ a.deco-none, a.deco-none:hover {
 }
 
 .referral-button {
-  background-color: #00917C;
+  background-color: var(--color-primary);
   color: white;
   padding: 8px 16px;
   text-decoration: none;
@@ -335,7 +341,7 @@ a.deco-none, a.deco-none:hover {
 }
 
 .referral-button:hover {
-  background-color: #007d6a;
+  background-color: var(--color-primary-hover);
   color: white;
   text-decoration: none;
 }
@@ -354,47 +360,74 @@ a.deco-none, a.deco-none:hover {
   text-align: center;
 }
 
-/* Responsive table styling */
-@media (max-width: 768px) {
-  .referral-table,
-  .referral-table thead,
-  .referral-table tbody,
-  .referral-table th,
-  .referral-table td,
-  .referral-table tr {
-    display: block;
-  }
+/* Utility helpers and aliases (added for Elm refactor) */
 
-  .referral-table thead tr {
-    position: absolute;
-    top: -9999px;
-    left: -9999px;
-  }
+/* Note: `.container` usually comes from Bootstrap; don't redefine it here to avoid conflicts. */
 
-  .referral-table tr {
-    border: 1px solid #ccc;
-    margin-bottom: 10px;
-    padding: 10px;
-  }
-
-  .referral-table td {
-    border: none;
-    position: relative;
-    padding-left: 50%;
-  }
-
-  .referral-table td:before {
-    content: attr(data-label) ": ";
-    position: absolute;
-    left: 6px;
-    width: 45%;
-    padding-right: 10px;
-    white-space: nowrap;
-    font-weight: bold;
-    color: #293c4b;
-  }
-
-  .referral-link {
-    text-align: left;
-  }
+.row {
+  display: flex;
+  align-items: center;
 }
+
+.flex-1 { flex: 1; }
+.flex-3 { flex: 3; }
+.mr-16 { margin-right: 16px; }
+
+/* Avatar / logo helper */
+.img--avatar {
+  border-radius: 50%;
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  margin: 20px 0;
+}
+
+/* Badge image used in mentoring packages */
+.img-badge {
+  width: 300px;
+  max-width: 100%;
+  height: auto;
+  display: inline-block;
+}
+
+/* Small spacing helpers for legacy anchors */
+.hire-me { /* kept for anchor/linking semantics; spacing can be adjusted where needed */ }
+.twitter-tweet { margin: 12px 0; }
+
+/* Optional modifier variants (future use) */
+.border--red {
+  border-left: 5px solid;
+  margin-left: 0;
+  padding-left: 10px;
+  border-color: var(--color-danger);
+}
+
+.border--red:hover {
+  background-color: var(--color-danger);
+  color: white;
+}
+
+.border--green {
+  border-left: 5px solid;
+  margin-left: 0;
+  padding-left: 10px;
+  border-color: var(--color-primary);
+}
+
+.border--green:hover {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.border--blue {
+  border-left: 5px solid;
+  margin-left: 0;
+  padding-left: 10px;
+  border-color: var(--color-blue);
+}
+
+.border--blue:hover {
+  background-color: var(--color-blue);
+  color: white;
+}
+

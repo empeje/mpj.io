@@ -1,8 +1,8 @@
 module Main exposing (..)
 
 import Browser
-import Html exposing (Html, a, blockquote, br, button, div, em, h1, h2, h3, h4, hr, i, iframe, img, input, li, node, p, table, tbody, td, text, th, thead, tr, ul)
-import Html.Attributes exposing (alt, attribute, class, dir, height, href, id, lang, placeholder, src, style, target, title, type_, value, width)
+import Html exposing (Html, a, blockquote, br, button, div, h1, h2, h4, hr, i, iframe, img, input, li, node, p, table, tbody, td, text, th, thead, tr, ul)
+import Html.Attributes exposing (alt, attribute, class, dir, height, href, id, lang, placeholder, src, target, title, type_, value, width)
 import Html.Events exposing (onInput)
 import Task
 import Time
@@ -92,20 +92,19 @@ viewHeader =
         [ viewNav
         , h1 [] [ text "Towards entrepreneurial and investment wisdom" ]
         , p [] [ text "by MPJ" ]
-        , div [ style "display" "flex", style "align-items" "center" ]
-            [ div [ style "flex" "1", style "margin-right" "16px" ]
+        , div [ attribute "style" "display: flex; align-items: center;" ]
+            [ div [ attribute "style" "flex: 1; margin-right: 16px;" ]
                 [ img
                     [ class "logo"
                     , src "https://github.com/empeje.png"
-                    , style "border-radius" "50%"
-                    , style "width" "100%" -- Set the width to 100% to make the image responsive
+                    , attribute "style" "border-radius: 50%; width: 100%;"
                     ]
                     []
                 ]
-            , div [ style "flex" "3" ]
+            , div [ attribute "style" "flex: 3;" ]
                 [ p [] [ text "I'm a 💻 software engineer, 🏗️ builder, and mentor to highly-motivated engineers." ]
                 , p []
-                    [ a [ href "https://www.goodreads.com/en/book/show/248069.Child_of_All_Nations", target "_blank" ] [ text "Child of all nations 🌎 (not mine but important)" ] ]
+                    [ linkNewTab [ href "https://www.goodreads.com/en/book/show/248069.Child_of_All_Nations" ] [ text "Child of all nations 🌎 (not mine but important)" ] ]
                 , p [] [ text "Fun fact: I'm a big fan of 🚀🦝 Rocket Raccoon." ]
                 ]
             ]
@@ -455,12 +454,12 @@ viewFooter model =
 
 linkNewTab : List (Html.Attribute msg) -> List (Html msg) -> Html msg
 linkNewTab attrs children =
-    a (List.append [ target "_blank" ] attrs) children
+    a (List.append [ target "_blank", attribute "rel" "noopener noreferrer" ] attrs) children
 
 
 imgBadge : List (Html.Attribute msg) -> List (Html msg) -> Html msg
 imgBadge attrs children =
-    img (List.append [ width 300 ] attrs) children
+    img (List.append [ class "img-badge" ] attrs) children
 
 
 pickBorder : Int -> String
@@ -546,11 +545,11 @@ viewReferralsTable links =
 viewReferralTableRow : Int -> ReferralLink -> Html Msg
 viewReferralTableRow index link =
     tr [ class <| pickBorder index ]
-        [ td [ class "product-name" ] [ text link.productName ]
-        , td [ class "referral-link" ]
+        [ td [ class "product-name", attribute "data-label" "Product Name" ] [ text link.productName ]
+        , td [ class "referral-link", attribute "data-label" "Referral Link" ]
             [ linkNewTab [ href link.referralUrl, class "referral-button" ] [ text "Sign Up" ]
             ]
-        , td [ class "benefit" ] [ text link.benefit ]
+        , td [ class "benefit", attribute "data-label" "Benefit" ] [ text link.benefit ]
         ]
 
 
