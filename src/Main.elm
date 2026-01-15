@@ -507,6 +507,10 @@ referralData =
       , referralUrl = "https://www.perplexity.ai/referrals/2QC16RJD"
       , benefit = "One month Pro for free"
       }
+    , { productName = "Wise"
+      , referralUrl = "https://wise.com/invite/dic/abdurrachmanm"
+      , benefit = "Get zero fees on a transfer up to IDR 9,000,000."
+      }
     ]
 
 
