@@ -25,7 +25,7 @@ init =
 
 linktree : String
 linktree =
-    "https://linktr.ee/yokulguy?ref=mpj.io"
+    "https://linktr.ee/yokulguy"
 
 
 
@@ -104,7 +104,7 @@ viewHeader =
             , div [ attribute "style" "flex: 3;" ]
                 [ p [] [ text "I'm a 💻 software engineer, 🏗️ builder, and mentor to highly-motivated engineers." ]
                 , p []
-                    [ linkNewTab [ href "https://www.goodreads.com/en/book/show/248069.Child_of_All_Nations" ] [ text "Child of all nations 🌎 (not mine but important)" ] ]
+                    [ linkNewTab [ hrefWithUtmSource "https://www.goodreads.com/en/book/show/248069.Child_of_All_Nations" ] [ text "Child of all nations 🌎 (not mine but important)" ] ]
                 , p [] [ text "Fun fact: I'm a big fan of 🚀🦝 Rocket Raccoon." ]
                 ]
             ]
@@ -174,9 +174,9 @@ viewEdo : Html Msg
 viewEdo =
     div []
         [ p []
-            [ linkNewTab [ href "https://www.linkedin.com/in/wihlarko-prasdegdho" ] [ text "Wihlarko Prasdegdho" ]
+            [ linkNewTab [ hrefWithUtmSource "https://www.linkedin.com/in/wihlarko-prasdegdho" ] [ text "Wihlarko Prasdegdho" ]
             , text " - Senior Engineer at Tridorian "
-            , linkNewTab [ href "https://www.linkedin.com/in/wihlarko-prasdegdho" ] [ text "↗" ]
+            , linkNewTab [ hrefWithUtmSource "https://www.linkedin.com/in/wihlarko-prasdegdho" ] [ text "↗" ]
             ]
         , blockquote [ class "edo-testimonial" ]
             [ text "\"I recently have the privilege of being mentored in a 1-on-1 session with MPJ, and i'am incredibly grateful for the experience. He shared insightful tips and tricks on how to win the hearts of HR and hiring managers during interviews, and also gave me valuable feedback on my CV. From that session, i realized there were many aspects of my CV and self-presentation that needed improvement, with his guidance i was able to refine my CV and develop a better approach to interviews. As a result, i started receiving multiple interview invitations including opportunities offering relocation to Europe and i'am now excited to share that I have landed a fulltime remote role at a multinational company based in Singapore. Thank you so much, MPJ, for your support and mentorship, it truly made a real difference in my journey!\""
@@ -257,19 +257,19 @@ viewNav : Html Msg
 viewNav =
     div [ class "navigation" ]
         [ ul []
-            [ li [] [ linkNewTab [ href "https://blog.mpj.io" ] [ text "Blog" ] ]
+            [ li [] [ linkNewTab [ hrefWithUtmSource "https://blog.mpj.io" ] [ text "Blog" ] ]
             , li []
                 [ div [ class "dropdown" ]
                     [ button [ class "dropbtn" ] [ text "More" ]
                     , div [ class "dropdown-content" ]
-                        [ linkNewTab [ href "https://com6.substack.com" ] [ text "COM6 Dispatch" ]
-                        , linkNewTab [ href "https://lawtech.mpj.io" ] [ text "LawTech Bulletin" ]
-                        , linkNewTab [ href "https://www.youtube.com/channel/UCHxI3i2iobjq226ze-N-QBA" ] [ text "YouTube" ]
-                        , linkNewTab [ href "https://www.meetup.com/members/279285007/" ] [ text "Meetup.com" ]
-                        , linkNewTab [ href "https://lu.ma/u/mpj" ] [ text "Lu.ma" ]
-                        , linkNewTab [ href "https://leanpub.com/u/empeje" ] [ text "Books" ]
-                        , linkNewTab [ href "https://scholar.google.com/citations?user=aRReMSEAAAAJ&hl=en" ] [ text "Google Scholar" ]
-                        , linkNewTab [ href "https://legacy.mpj.io" ] [ text "Legacy Blog" ]
+                        [ linkNewTab [ hrefWithUtmSource "https://com6.substack.com" ] [ text "COM6 Dispatch" ]
+                        , linkNewTab [ hrefWithUtmSource "https://lawtech.mpj.io" ] [ text "LawTech Bulletin" ]
+                        , linkNewTab [ hrefWithUtmSource "https://www.youtube.com/channel/UCHxI3i2iobjq226ze-N-QBA" ] [ text "YouTube" ]
+                        , linkNewTab [ hrefWithUtmSource "https://www.meetup.com/members/279285007/" ] [ text "Meetup.com" ]
+                        , linkNewTab [ hrefWithUtmSource "https://lu.ma/u/mpj" ] [ text "Lu.ma" ]
+                        , linkNewTab [ hrefWithUtmSource "https://leanpub.com/u/empeje" ] [ text "Books" ]
+                        , linkNewTab [ hrefWithUtmSource "https://scholar.google.com/citations?user=aRReMSEAAAAJ&hl=en" ] [ text "Google Scholar" ]
+                        , linkNewTab [ hrefWithUtmSource "https://legacy.mpj.io" ] [ text "Legacy Blog" ]
                         , a [ href "#referrals" ] [ text "Offers" ]
                         ]
                     ]
@@ -436,7 +436,7 @@ viewList data =
             p
                 [ class <| pickBorder index
                 ]
-                [ linkNewTab [ class "deco-none", href url ] [ text txt ] ]
+                [ linkNewTab [ class "deco-none", hrefWithUtmSource url ] [ text txt ] ]
         )
         data
 
@@ -460,6 +460,22 @@ linkNewTab attrs children =
 imgBadge : List (Html.Attribute msg) -> List (Html msg) -> Html msg
 imgBadge attrs children =
     img (List.append [ class "img-badge" ] attrs) children
+
+
+hrefWithUtmSource : String -> Html.Attribute msg
+hrefWithUtmSource url =
+    let
+        separator =
+            if String.contains "?" url then
+                "&"
+
+            else
+                "?"
+
+        urlWithUtm =
+            url ++ separator ++ "utm_source=mpj.io"
+    in
+    href urlWithUtm
 
 
 pickBorder : Int -> String
@@ -547,7 +563,7 @@ viewReferralTableRow index link =
     tr [ class <| pickBorder index ]
         [ td [ class "product-name", attribute "data-label" "Product Name" ] [ text link.productName ]
         , td [ class "referral-link", attribute "data-label" "Referral Link" ]
-            [ linkNewTab [ href link.referralUrl, class "referral-button" ] [ text "Sign Up" ]
+            [ linkNewTab [ hrefWithUtmSource link.referralUrl, class "referral-button" ] [ text "Sign Up" ]
             ]
         , td [ class "benefit", attribute "data-label" "Benefit" ] [ text link.benefit ]
         ]
