@@ -295,7 +295,7 @@ a.deco-none, a.deco-none:hover {
   }
 }
 
-/* Mentee showcase styling */
+/* Mentee showcase styling - ICONIC DESIGN */
 .mentee-showcase {
   display: flex;
   flex-direction: column;
@@ -303,41 +303,83 @@ a.deco-none, a.deco-none:hover {
 }
 
 .mentee-card {
-  border: 1px solid #e0e0e0;
+  border: 1px solid var(--color-border);
   border-radius: 0;
   padding: 20px;
   background-color: #ffffff;
-  box-shadow: none;
-  transition: none;
+  transition: all 0.3s ease;
   height: fit-content;
   display: flex;
   flex-direction: column;
+  /* Add iconic left border */
+  border-left: 3px solid;
+  margin-left: 0;
+  padding-left: 18px;
 }
 
+/* Color rotation for mentee cards */
+.mentee-card:nth-child(odd) {
+  border-left-color: var(--color-primary);
+}
+
+.mentee-card:nth-child(even) {
+  border-left-color: var(--color-blue);
+}
+
+/* Iconic hover effect */
 .mentee-card:hover {
-  box-shadow: none;
+  border-left-width: 5px;
+  padding-left: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.mentee-card:nth-child(odd):hover {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.mentee-card:nth-child(even):hover {
+  background-color: var(--color-blue);
+  color: white;
 }
 
 .mentee-card-title {
   margin: 0 0 15px 0;
   color: var(--color-accent);
   font-weight: bold;
-  border-bottom: 2px solid var(--color-primary);
+  font-family: var(--font-sans);
+  font-size: 1.1em;
+  border-bottom: 2px solid currentColor;
   padding-bottom: 10px;
-  height: 1.2em;
+  height: auto;
   flex-shrink: 0;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  transition: color 0.3s ease;
+}
+
+.mentee-card:hover .mentee-card-title {
+  color: white;
+  border-bottom-color: white;
 }
 
 .mentee-card-content {
   line-height: 1.6;
+  font-family: var(--font-sans);
+}
+
+.mentee-card:hover .mentee-card-content {
+  color: white;
 }
 
 .mentee-card-content em {
   font-style: italic;
-  color: #555;
+  color: var(--color-muted);
+}
+
+.mentee-card:hover .mentee-card-content em {
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .mentee-card-content blockquote {
@@ -345,15 +387,20 @@ a.deco-none, a.deco-none:hover {
   padding: 0;
 }
 
-/* Edo testimonial styling */
+/* Edo testimonial styling - matches iconic design */
 .edo-testimonial {
   font-style: italic;
-  font-size: 1.1em;
-  color: #555;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  color: var(--color-accent);
+  background: transparent;
   margin: 15px 0;
-  padding: 20px;
+  padding: 0;
   position: relative;
+  font-family: var(--font-sans);
+  line-height: 1.7;
+}
+
+.mentee-card:hover .edo-testimonial {
+  color: white;
 }
 
 @media (min-width: 768px) {

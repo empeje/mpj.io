@@ -152,6 +152,7 @@ The website's most distinctive and recognizable feature is the **unified colored
 3. **Dropdown button** — "More" button (blue border) with zoom effect
 4. **Dropdown menu items** — rotating colors (red/green/blue) with zoom effect
 5. **Special inline links** — "Child of all nations" (green border) with zoom effect
+6. **Mentee testimonial cards** — color rotation (green/blue for odd/even) with zoom effect
 
 **Technical implementation:**
 ```css
@@ -185,6 +186,7 @@ element:hover {
 - `.dropbtn` (More button)
 - `.dropdown-content a` (dropdown menu items)
 - `.inline-link-special` (special inline links)
+- `.mentee-card` (testimonial cards with :nth-child color rotation)
 
 **Elm logic:** 
 - `pickBorder` function in `src/Main.elm` assigns colors to list items based on index modulo
