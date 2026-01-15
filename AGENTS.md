@@ -138,45 +138,84 @@ Notes: There is no <link> to load 'Source Sans Pro' in `public/index.html`. Eith
 
 **CRITICAL: This is the signature visual element of the website and must be preserved at all costs.**
 
-The website's most distinctive and recognizable feature is the **colored left-border hover interaction** applied throughout the site:
+The website's most distinctive and recognizable feature is the **unified colored left-border hover interaction** applied consistently throughout the site:
 
-- **Default state:** Each interactive element displays a 5px colored left border (red, green, or blue)
-- **Hover state:** The entire background fills with the border's color, text turns white
+**The Unified Pattern:**
+- **Default state:** 3px colored left border with subtle padding, NO underline
+- **Hover state:** Border grows to 5px, padding expands slightly (zoom effect), background fills with border color, text turns white, NO underline
+- **Transition:** Smooth 0.3s ease for all properties
+- **Consistency:** Global rule removes underlines from ALL links site-wide
 
-**Where it's applied:**
+**Where it's applied (100% consistent):**
 1. **List items and table rows** — content links with color rotation (red/green/blue based on index)
-2. **Navigation** — "Blog" link (green border) and "More" dropdown button (blue border)
-3. **Dropdown menu items** — rotating colors (red/green/blue) for each menu item
+2. **Navigation** — "Blog" link (green border) with zoom effect
+3. **Dropdown button** — "More" button (blue border) with zoom effect
+4. **Dropdown menu items** — rotating colors (red/green/blue) with zoom effect
+5. **Special inline links** — "Child of all nations" (green border) with zoom effect
 
 **Technical implementation:**
-- CSS classes: `.red-border`, `.green-border`, `.blue-border` (defined in `src/main.css`)
-- Navigation: Direct CSS rules for `.navigation li a` and `.dropbtn` with hover transitions
-- Dropdown items: CSS `:nth-child()` selectors for color rotation
-- Elm logic: `pickBorder` function in `src/Main.elm` assigns colors to list items based on index modulo
+```css
+/* Global consistency - remove all underlines */
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* The Unified Pattern - Applied Everywhere */
+element {
+  border-left: 3px solid var(--color-*);
+  padding-left: 8px;  /* or 16px for navigation */
+  transition: all 0.3s ease;
+}
+
+element:hover {
+  border-left-width: 5px;
+  padding-left: 10px;  /* or 18px for navigation - creates zoom effect */
+  background-color: var(--color-*);
+  color: white;
+}
+```
+
+**CSS classes:**
+- `.red-border`, `.green-border`, `.blue-border` (content lists/tables)
+- `.navigation li a` (Blog link)
+- `.dropbtn` (More button)
+- `.dropdown-content a` (dropdown menu items)
+- `.inline-link-special` (special inline links)
+
+**Elm logic:** 
+- `pickBorder` function in `src/Main.elm` assigns colors to list items based on index modulo
 - Color rotation: index % 3 == 0 → red; index % 2 == 0 → green; else → blue
 
 **Why this matters:**
 1. **Brand identity** — this interaction is immediately recognizable and unique to the site
-2. **Consistent experience** — same interaction pattern throughout (navigation, content, tables)
-3. **User engagement** — the hover effect provides clear visual feedback and delight
+2. **Complete consistency** — identical behavior across ALL interactive elements (navigation, content, tables, inline links)
+3. **User engagement** — the zoom effect (border growth + padding expansion) provides satisfying visual feedback
 4. **Visual hierarchy** — colors help distinguish different content items at a glance
+5. **Professional polish** — every hover interaction follows the exact same pattern
 
 **Protected by design:**
-- Border colors use CSS variables (`var(--color-danger)`, `var(--color-primary)`, `var(--color-blue)`) for maintainability while preserving exact behavior
-- Smooth transitions (0.3s ease) ensure the interaction feels polished
+- Border colors use CSS variables (`var(--color-danger)`, `var(--color-primary)`, `var(--color-blue)`) for maintainability
+- All transitions use `all 0.3s ease` for consistency
+- Border grows from 3px → 5px everywhere
+- Padding expansion creates the signature "zoom" effect
 - Any refactoring must validate that hover transitions remain smooth and colors stay consistent
-- Visual regression testing should always verify this interaction across all components
 
 **DO NOT:**
-- Change the fundamental interaction pattern (border → full background)
-- Modify color rotation logic without explicit approval
-- Remove or significantly alter hover transitions (keep 0.3s ease timing)
-- Apply this pattern inconsistently across similar components
-- Change border width (5px is standard)
+- Change the fundamental interaction pattern (3px border → 5px border + background fill)
+- Modify transition timing (must stay 0.3s ease)
+- Remove or alter the zoom effect (border + padding growth)
+- Apply different hover patterns to different sections
+- Change border width (3px default, 5px on hover is standard)
+- Add underlines to any links (breaks the clean iconic design)
 
 **Reference implementation:** 
-- Content lists/tables: `.red-border`, `.green-border`, `.blue-border` in `website/src/main.css` (lines ~78-110)
-- Navigation: `.navigation li a`, `.dropbtn`, `.dropdown-content a` in `website/src/main.css` (lines ~44-180)
+- Content lists/tables: `.red-border`, `.green-border`, `.blue-border` in `website/src/main.css` (lines ~122-159)
+- Navigation: `.navigation li a`, `.dropbtn`, `.dropdown-content a` in `website/src/main.css` (lines ~60-244)
+- Special inline: `.inline-link-special` in `website/src/main.css` (lines ~102-116)
 
 ---
 

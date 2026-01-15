@@ -104,7 +104,7 @@ viewHeader =
             , div [ attribute "style" "flex: 3;" ]
                 [ p [] [ text "I'm a 💻 software engineer, 🏗️ builder, and mentor to highly-motivated engineers." ]
                 , p []
-                    [ linkNewTab [ hrefWithUtmSource "https://www.goodreads.com/en/book/show/248069.Child_of_All_Nations" ] [ text "Child of all nations 🌎 (not mine but important)" ] ]
+                    [ linkNewTab [ hrefWithUtmSource "https://www.goodreads.com/en/book/show/248069.Child_of_All_Nations", class "inline-link-special" ] [ text "Child of all nations 🌎 (not mine but important)" ] ]
                 , p [] [ text "Fun fact: I'm a big fan of 🚀🦝 Rocket Raccoon." ]
                 ]
             ]
