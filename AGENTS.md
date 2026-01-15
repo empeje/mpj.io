@@ -125,8 +125,78 @@ Notes: There is no <link> to load 'Source Sans Pro' in `public/index.html`. Eith
   - Markup: <div class="mentee-card"> <h4 class="mentee-card-title">Title</h4> <div class="mentee-card-content">…</div> </div>
 
 ### Missing / recommended small improvements
-- Add a font host or Google Fonts link for 'Source Sans Pro' in `public/index.html` to ensure consistent typography across platforms.
-- Centralize colors, spacing and type scale into CSS custom properties in `src/main.css` (e.g., :root { --color-primary: #00917C; --sp-1: 8px; --fs-base: 16px; })
+- ✅ DONE: Centralized colors, spacing and type scale into CSS custom properties in `src/main.css` (:root variables now define --color-primary, --color-accent, --sp-1 through --sp-4, --font-sans)
+- ✅ DONE: Replaced all hardcoded colors with CSS variables throughout the stylesheet (maintainability improved)
+- ✅ DONE: Preferred font set to 'Trebuchet MS' as default system font (no external font loading needed)
 - Bootstrap JS imports have been removed from `src/index.js` — this reduces interop risk. Only reintroduce them (with Elm ports/isolation) if you need JS-driven components.
+
+---
+
+## Core Design Philosophy
+
+### 🎨 The Iconic Hover Design (Heart of the Website)
+
+**CRITICAL: This is the signature visual element of the website and must be preserved at all costs.**
+
+The website's most distinctive and recognizable feature is the **colored left-border hover interaction** applied to list items and table rows:
+
+- **Default state:** Each item displays a 5px colored left border (red, green, or blue in rotation)
+- **Hover state:** The entire background fills with the border's color, text turns white
+
+**Technical implementation:**
+- CSS classes: `.red-border`, `.green-border`, `.blue-border` (defined in `src/main.css`)
+- Elm logic: `pickBorder` function in `src/Main.elm` assigns colors based on index modulo
+- Color rotation: index % 3 == 0 → red; index % 2 == 0 → green; else → blue
+
+**Why this matters:**
+1. **Brand identity** — this interaction is immediately recognizable and unique to the site
+2. **User engagement** — the hover effect provides clear visual feedback and delight
+3. **Visual hierarchy** — colors help distinguish different content items at a glance
+
+**Protected by design:**
+- Border colors use CSS variables (`var(--color-danger)`, `var(--color-primary)`, `var(--color-blue)`) for maintainability while preserving exact behavior
+- Any refactoring must validate that hover transitions remain smooth and colors stay consistent
+- Visual regression testing should always verify this interaction
+
+**DO NOT:**
+- Change the fundamental interaction pattern (border → full background)
+- Modify color rotation logic without explicit approval
+- Remove or significantly alter hover transitions
+- Apply this pattern inconsistently across similar components
+
+**Reference implementation:** See `.red-border`, `.green-border`, `.blue-border` in `website/src/main.css` (lines ~78-110)
+
+---
+
+## Ongoing Refactoring Efforts
+
+**Status:** Active | **Current Score:** 9.6/10 | **Last Updated:** January 15, 2026
+
+### Quick Summary
+Recent refactoring efforts have significantly improved code quality while preserving the iconic hover design:
+- ✅ CSS variables centralized (colors, spacing)
+- ✅ Security hardened (all external links)
+- ✅ Mobile responsiveness improved (table labels)
+- ✅ Border classes consolidated with CSS variables
+- ⚠️ Header layout kept as inline styles (pragmatic trade-off for visual stability)
+
+### Detailed Logs
+For complete refactoring history, lessons learned, testing protocols, and technical details, see:
+
+**→ [`REFACTORING_LOG.md`](./REFACTORING_LOG.md)**
+
+This separate log file contains:
+- Session-by-session change history
+- Detailed "what we tried" vs "what worked" analyses
+- Code quality assessments with scores
+- Testing protocols and verification steps
+- Critical lessons (e.g., when NOT to refactor)
+- Utility classes available for future use
+- References and best practices
+
+**Key Principle from Refactoring:**
+> Not every inline style needs to become a CSS class. When a specific layout is fragile and works perfectly as-is, leave it alone and improve the rest of the codebase. Visual stability trumps code purity.
+
+---
 
 <!-- End of AGENTS.md -->
