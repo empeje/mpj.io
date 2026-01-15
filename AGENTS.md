@@ -22,7 +22,20 @@ Why it matters: Importing imperative libraries (like jQuery or Bootstrap's JS) a
 Suggested minimal remediation / status: The JS imports have been removed (good). If you only need Bootstrap for styling, keep `bootstrap/dist/css/bootstrap.css` (as currently present). If you need JS-driven widgets (dropdowns, tooltips, modals), implement a small interop layer using Elm ports and only let the JS operate on DOM elements that are intentionally outside Elm's control.
 
 ## One-line next step
-- Add a Google Fonts link for the declared font and centralize visual tokens (colors/spacing) into CSS variables; the Bootstrap JS imports have been removed from `src/index.js` (status: resolved).
+- Centralize visual tokens (colors/spacing/typography) into CSS variables; the Bootstrap JS imports have been removed from `src/index.js` (status: resolved). Trebuchet MS is set as the preferred system font and no external fonts are loaded.
+
+## Progress checklist (done)
+- [x] Inspect `website/src/main.css` and extract colors/components/breakpoints
+- [x] Inspect `website/src/Main.elm` to map classes and inline layout styles
+- [x] Inspect `website/public/index.html` for font/script usage
+- [x] Inspect `website/src/index.js` and confirm Bootstrap CSS import (JS imports removed)
+- [x] Draft Design Guidelines summary based on files above
+- [x] Insert Design Guidelines into `website/AGENTS.md`
+- [x] Update `website/AGENTS.md` to reflect removal of Bootstrap JS imports
+- [x] Validate `website/AGENTS.md` for syntax/errors
+- [x] Add Google Fonts link to `public/index.html` and apply global font in `src/main.css` (later removed when Trebuchet was chosen)
+- [x] Centralize basic tokens (colors/spacing/typography) in `src/main.css` via :root CSS variables
+- [x] Set `Trebuchet MS` as the preferred default font and removed Google Fonts link from `public/index.html`
 
 ## Design Guidelines
 Below is a concise summary of the visual system used by the site (extracted from `website/src/main.css` and the Elm view in `website/src/Main.elm`). Use this as a quick reference for colors, typography, spacing, layout, components, responsive rules, and file/selector traceability.
