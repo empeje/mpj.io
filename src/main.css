@@ -48,11 +48,30 @@ html, body, #root {
 
 .navigation ul {
   list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 .navigation li {
-  display: inline;
-  padding: 10px;
+  display: inline-block;
+  margin-left: 8px;
+}
+
+/* Navigation link styling with iconic hover design */
+.navigation li a:not(.dropdown a) {
+  display: inline-block;
+  padding: 10px 16px;
+  text-decoration: none;
+  color: var(--color-accent);
+  border-left: 5px solid var(--color-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: var(--font-sans);
+  font-size: 16px;
+}
+
+.navigation li a:not(.dropdown a):hover {
+  background-color: var(--color-primary);
+  color: white;
 }
 
 .content {
@@ -122,14 +141,22 @@ a.deco-none, a.deco-none:hover {
   display: inline-block;
 }
 
-/* Style the dropdown button */
+/* Style the dropdown button with iconic hover design */
 .dropbtn {
-  background-color: var(--color-primary);
-  color: white;
-  padding: 10px;
+  background-color: transparent;
+  color: var(--color-accent);
+  padding: 10px 16px;
   font-size: 16px;
   border: none;
+  border-left: 5px solid var(--color-blue);
   cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: var(--font-sans);
+}
+
+.dropbtn:hover {
+  background-color: var(--color-blue);
+  color: white;
 }
 
 /* Style the dropdown content (hidden by default) */
@@ -141,20 +168,50 @@ a.deco-none, a.deco-none:hover {
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
   right: 0; /* Align dropdown content to the right */
+  border: 1px solid var(--color-border);
 }
 
-/* Style the links inside the dropdown */
+/* Style the links inside the dropdown with iconic hover design */
 .dropdown-content a {
-  color: black;
+  color: var(--color-accent);
   padding: 12px 16px;
   text-decoration: none;
   display: block;
   text-align: right; /* Align menu items to the right */
+  border-left: 5px solid;
+  margin-left: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: var(--font-sans);
+  font-size: 16px;
 }
 
-/* Change color on hover */
-.dropdown-content a:hover {
-  background-color: #f1f1f1;
+/* Apply rotating border colors to dropdown items */
+.dropdown-content a:nth-child(3n+1) {
+  border-color: var(--color-danger);
+}
+
+.dropdown-content a:nth-child(3n+2) {
+  border-color: var(--color-primary);
+}
+
+.dropdown-content a:nth-child(3n) {
+  border-color: var(--color-blue);
+}
+
+/* Hover effects matching the border colors */
+.dropdown-content a:nth-child(3n+1):hover {
+  background-color: var(--color-danger);
+  color: white;
+}
+
+.dropdown-content a:nth-child(3n+2):hover {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.dropdown-content a:nth-child(3n):hover {
+  background-color: var(--color-blue);
+  color: white;
 }
 
 /* Show the dropdown content when the dropdown is hovered over */

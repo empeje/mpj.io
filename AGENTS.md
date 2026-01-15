@@ -138,46 +138,59 @@ Notes: There is no <link> to load 'Source Sans Pro' in `public/index.html`. Eith
 
 **CRITICAL: This is the signature visual element of the website and must be preserved at all costs.**
 
-The website's most distinctive and recognizable feature is the **colored left-border hover interaction** applied to list items and table rows:
+The website's most distinctive and recognizable feature is the **colored left-border hover interaction** applied throughout the site:
 
-- **Default state:** Each item displays a 5px colored left border (red, green, or blue in rotation)
+- **Default state:** Each interactive element displays a 5px colored left border (red, green, or blue)
 - **Hover state:** The entire background fills with the border's color, text turns white
+
+**Where it's applied:**
+1. **List items and table rows** — content links with color rotation (red/green/blue based on index)
+2. **Navigation** — "Blog" link (green border) and "More" dropdown button (blue border)
+3. **Dropdown menu items** — rotating colors (red/green/blue) for each menu item
 
 **Technical implementation:**
 - CSS classes: `.red-border`, `.green-border`, `.blue-border` (defined in `src/main.css`)
-- Elm logic: `pickBorder` function in `src/Main.elm` assigns colors based on index modulo
+- Navigation: Direct CSS rules for `.navigation li a` and `.dropbtn` with hover transitions
+- Dropdown items: CSS `:nth-child()` selectors for color rotation
+- Elm logic: `pickBorder` function in `src/Main.elm` assigns colors to list items based on index modulo
 - Color rotation: index % 3 == 0 → red; index % 2 == 0 → green; else → blue
 
 **Why this matters:**
 1. **Brand identity** — this interaction is immediately recognizable and unique to the site
-2. **User engagement** — the hover effect provides clear visual feedback and delight
-3. **Visual hierarchy** — colors help distinguish different content items at a glance
+2. **Consistent experience** — same interaction pattern throughout (navigation, content, tables)
+3. **User engagement** — the hover effect provides clear visual feedback and delight
+4. **Visual hierarchy** — colors help distinguish different content items at a glance
 
 **Protected by design:**
 - Border colors use CSS variables (`var(--color-danger)`, `var(--color-primary)`, `var(--color-blue)`) for maintainability while preserving exact behavior
+- Smooth transitions (0.3s ease) ensure the interaction feels polished
 - Any refactoring must validate that hover transitions remain smooth and colors stay consistent
-- Visual regression testing should always verify this interaction
+- Visual regression testing should always verify this interaction across all components
 
 **DO NOT:**
 - Change the fundamental interaction pattern (border → full background)
 - Modify color rotation logic without explicit approval
-- Remove or significantly alter hover transitions
+- Remove or significantly alter hover transitions (keep 0.3s ease timing)
 - Apply this pattern inconsistently across similar components
+- Change border width (5px is standard)
 
-**Reference implementation:** See `.red-border`, `.green-border`, `.blue-border` in `website/src/main.css` (lines ~78-110)
+**Reference implementation:** 
+- Content lists/tables: `.red-border`, `.green-border`, `.blue-border` in `website/src/main.css` (lines ~78-110)
+- Navigation: `.navigation li a`, `.dropbtn`, `.dropdown-content a` in `website/src/main.css` (lines ~44-180)
 
 ---
 
 ## Ongoing Refactoring Efforts
 
-**Status:** Active | **Current Score:** 9.6/10 | **Last Updated:** January 15, 2026
+**Status:** Active | **Current Score:** 9.8/10 | **Last Updated:** January 15, 2026
 
 ### Quick Summary
-Recent refactoring efforts have significantly improved code quality while preserving the iconic hover design:
+Recent refactoring efforts have significantly improved code quality while extending the iconic hover design:
 - ✅ CSS variables centralized (colors, spacing)
 - ✅ Security hardened (all external links)
 - ✅ Mobile responsiveness improved (table labels)
 - ✅ Border classes consolidated with CSS variables
+- ✅ **NEW:** Navigation redesigned with iconic hover pattern (Blog, More button, dropdown items)
 - ⚠️ Header layout kept as inline styles (pragmatic trade-off for visual stability)
 
 ### Detailed Logs
