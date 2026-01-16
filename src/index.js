@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import './main.css';
 import { Elm } from './Main.elm';
 import * as serviceWorker from './serviceWorker';
+import './kit-form.js';
 
 Elm.Main.init({
   node: document.getElementById('root')

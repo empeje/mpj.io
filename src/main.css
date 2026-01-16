@@ -51,6 +51,63 @@ a:hover {
 }
 
 /* ============================================
+   NEWSLETTER SECTION - Two Column Layout
+   ============================================ */
+
+.newsletter-section {
+  padding: 0;
+  margin: 30px 0 40px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.newsletter-text {
+  margin: 0;
+}
+
+.newsletter-headline {
+  font-size: 1.1em;
+  line-height: 1.4;
+  color: var(--color-accent);
+  font-family: var(--font-sans);
+  font-weight: bold;
+  margin: 0 0 10px 0;
+}
+
+.newsletter-description {
+  font-size: 0.95em;
+  line-height: 1.6;
+  color: var(--color-accent);
+  font-family: var(--font-sans);
+  font-weight: normal;
+  margin: 0;
+  opacity: 0.85;
+}
+
+kit-form {
+  display: block;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .newsletter-section {
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+    margin: 30px 0 50px 0;
+  }
+
+  .newsletter-text {
+    flex: 1.5;
+  }
+
+  kit-form {
+    flex: 1;
+  }
+}
+
+/* ============================================
    HERO SECTION
    ============================================ */
 

@@ -64,9 +64,12 @@ view : Model -> Html Msg
 view model =
     div [ class "container content" ]
         [ viewHeader
-        , viewVideo "https://www.youtube.com/embed/ZpMzprmWBfo"
-        , viewHireMe
+        , viewNewsletter
         , viewRecentEvent
+        , viewBreak
+        , viewVideo "https://www.youtube.com/embed/ZpMzprmWBfo"
+        , viewBreak
+        , viewHireMe
         , viewBreak
         , viewBlogs
         , viewVideo "https://www.youtube.com/embed/lFZ6e4Plfb4?si=ZproA6U2rNkDchlH&amp;start=14"
@@ -104,10 +107,23 @@ viewHeader =
                     , p [ class "hero-credentials" ]
                         [ text "World-class Author and CTO-Mentor" ]
                     , p [ class "hero-description" ]
-                        [ text "Abdu is an engineer at Bol, and trained in UGM & ITB, Indonesia's premier engineering institution. He also mentors the next generation of software engineers—many now work at Amazon, Netflix, NVIDIA, and other big tech." ]
+                        [ text "Abdu is an engineer at Bol, and trained in UGM & ITB, Indonesia's premier institutions. He also mentors the next generation of software engineers—many now work at Amazon, Netflix, NVIDIA, and other big tech." ]
                     ]
                 ]
             ]
+        ]
+
+
+viewNewsletter : Html Msg
+viewNewsletter =
+    div [ class "newsletter-section" ]
+        [ div [ class "newsletter-text" ]
+            [ p [ class "newsletter-headline" ]
+                [ text "Want to excel in your career? Subscribe to Abdu's Newsletter" ]
+            , p [ class "newsletter-description" ]
+                [ text "Sign up to join more than 2,000 subscribers who receive Abdu's essays delivered to their inbox every week." ]
+            ]
+        , node "kit-form" [] []
         ]
 
 
