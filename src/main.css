@@ -72,18 +72,18 @@ a:hover {
   padding: 10px 16px;
   text-decoration: none;
   color: var(--color-accent);
-  border-left: 3px solid var(--color-primary);
+  border-left: 3px solid;
   transition: all 0.3s ease;
   font-family: var(--font-sans);
   font-size: 16px;
 }
 
 .navigation li a:not(.dropdown a):hover {
-  background-color: var(--color-primary);
-  color: white;
   border-left-width: 5px;
   padding-left: 18px;
+  color: white;
 }
+
 
 .content {
   font-family: var(--font-sans);
@@ -178,24 +178,69 @@ a.deco-none, a.deco-none:hover {
   display: inline-block;
 }
 
-/* Style the dropdown button with iconic hover design */
+/* Style the dropdown button - uses btn-iconic pattern */
 .dropbtn {
   background-color: transparent;
   color: var(--color-accent);
   padding: 10px 16px;
   font-size: 16px;
   border: none;
-  border-left: 3px solid var(--color-blue);
+  border-left: 3px solid;
   cursor: pointer;
   transition: all 0.3s ease;
   font-family: var(--font-sans);
 }
 
+/* ============================================
+   Navigation Color Rotation - All items
+   ============================================ */
+
+/* Color for Blog link (1st li) */
+.navigation li:nth-child(1) a:not(.dropdown a) {
+  border-left-color: var(--color-primary); /* Blog - Green */
+}
+
+.navigation li:nth-child(1) a:not(.dropdown a):hover {
+  background-color: var(--color-primary); /* Green */
+}
+
+/* Color rotation for dropdown buttons (2nd-5th li) */
+.navigation li:nth-child(2) .dropbtn {
+  border-left-color: var(--color-blue); /* Erudition - Blue */
+}
+
+.navigation li:nth-child(3) .dropbtn {
+  border-left-color: var(--color-danger); /* Jurisprudence - Red */
+}
+
+.navigation li:nth-child(4) .dropbtn {
+  border-left-color: var(--color-primary); /* Community - Green */
+}
+
+.navigation li:nth-child(5) .dropbtn {
+  border-left-color: var(--color-blue); /* More - Blue */
+}
+
 .dropbtn:hover {
-  background-color: var(--color-blue);
-  color: white;
   border-left-width: 5px;
   padding-left: 18px;
+  color: white;
+}
+
+.navigation li:nth-child(2) .dropbtn:hover {
+  background-color: var(--color-blue); /* Blue */
+}
+
+.navigation li:nth-child(3) .dropbtn:hover {
+  background-color: var(--color-danger); /* Red */
+}
+
+.navigation li:nth-child(4) .dropbtn:hover {
+  background-color: var(--color-primary); /* Green */
+}
+
+.navigation li:nth-child(5) .dropbtn:hover {
+  background-color: var(--color-blue); /* Blue */
 }
 
 /* Style the dropdown content (hidden by default) */
