@@ -88,24 +88,24 @@ viewBreak =
 
 viewHeader : Html Msg
 viewHeader =
-    div [ class "header" ]
+    div []
         [ viewNav
-        , h1 [] [ text "Towards entrepreneurial and investment wisdom" ]
-        , p [] [ text "by MPJ" ]
-        , div [ attribute "style" "display: flex; align-items: center;" ]
-            [ div [ attribute "style" "flex: 1; margin-right: 16px;" ]
-                [ img
-                    [ class "logo"
-                    , src "https://github.com/empeje.png"
-                    , attribute "style" "border-radius: 50%; width: 100%;"
+        , div [ class "hero-section" ]
+            [ div [ class "hero-content" ]
+                [ div [ class "hero-image" ]
+                    [ img
+                        [ src "hero-1.jpg"
+                        , attribute "alt" "Abdu Códigos Mappuji"
+                        ]
+                        []
                     ]
-                    []
-                ]
-            , div [ attribute "style" "flex: 3;" ]
-                [ p [] [ text "I'm a 💻 software engineer, 🏗️ builder, and mentor to highly-motivated engineers." ]
-                , p []
-                    [ linkNewTab [ hrefWithUtmSource "https://www.goodreads.com/en/book/show/248069.Child_of_All_Nations", class "inline-link-special" ] [ text "Child of all nations 🌎 (not mine but important)" ] ]
-                , p [] [ text "Fun fact: I'm a big fan of 🚀🦝 Rocket Raccoon." ]
+                , div [ class "hero-text" ]
+                    [ h1 [ class "hero-name" ] [ text "Abdu \"Códigos\" Mappuji" ]
+                    , p [ class "hero-credentials" ]
+                        [ text "World-class Author and CTO-Mentor" ]
+                    , p [ class "hero-description" ]
+                        [ text "Abdu is an engineer at Bol, and trained in UGM & ITB, Indonesia's premier engineering institution. He also mentors the next generation of software engineers—many now work at Amazon, Netflix, NVIDIA, and other big tech." ]
+                    ]
                 ]
             ]
         ]
