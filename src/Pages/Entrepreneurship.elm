@@ -39,7 +39,7 @@ viewInvestments =
         data =
             [ ( "https://www.ycombinator.com/companies/aptdeco", "AptDeco (YC W14)" )
             , ( "https://www.ycombinator.com/companies/airthium", "Airthium (YC S17)" )
-            , ( "https://www.ycombinator.com/companies/innamed", "InnaMed (YC W17)" )
+            , ( "https://www.ycombinator.com/companies/innamed", "InnaMed (YC W17) - Closed" )
             , ( "https://earnestcapital.com/", "Earnest Capital" )
             , ( "https://en.aktpictures.com/", "Akt Pictures - When I Was a Human" )
             , ( "https://republic.co/abdurrachman-mappuji", "Gumroad" )
@@ -52,7 +52,7 @@ viewInvestments =
     in
     List.append
         [ h2 [] [ text "Investments" ]
-        , p [] [ text "I invest in business from time to time, my principle on investing is value investing, and when I do, I value-add my investment through evangelism and constructive feedback. Here are some business I have invested." ]
+        , p [] [ text "I invest in business from time to time, my principle on investing is value investing, and when I do, I value-add my investment through evangelism and constructive feedback. Here are some businesses I have invested." ]
         ]
         (Shared.viewList data)
         |> div []

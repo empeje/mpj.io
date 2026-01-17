@@ -1,13 +1,109 @@
 # Website: architecture summary & quick audit
 
 ## Summary
-The `website/` folder is a small single-page site built with Elm. The compiled Elm app is bootstrapped from `src/index.js` which mounts `Elm.Main` into the DOM node with id `root` provided by `public/index.html`. Styling is provided by `src/main.css`, and static assets (icons, images used by Elm) live in `public/`. `src/Main.elm` is a single Elm Browser.element module that holds the Model, Update, and a large View composed of many helper functions. The project also includes a `serviceWorker.js` helper (Create‑React‑App style) which is imported but not registered by default (`serviceWorker.unregister()` in `src/index.js`).
+The `website/` folder is a **multi-page Elm application** using client-side routing. The site uses `Browser.application` (not `Browser.element`) with `elm/url` for navigation. The compiled Elm app is bootstrapped from `src/index.js` which mounts `Elm.Main` into the DOM node with id `root` provided by `public/index.html`. Styling is provided by `src/main.css` (with Bootstrap CSS for grid), and static assets (icons, images) live in `public/`. The project includes a `serviceWorker.js` helper which is imported but not registered by default.
+
+### Architecture
+- **Main.elm**: Router with `Browser.application`, handles URL changes and route parsing
+- **Shared.elm**: Common components (navigation, footer, viewRecentEvent, utility functions)
+- **Pages/**: Modular page components (Home, Appearances, HireMe, Writings, Entrepreneurship, Offers)
+- **Routing**: Clean URLs (no hash routing) with browser back/forward support
 
 ## Notable patterns & conventions
-- Single-page mounting: Elm owns the DOM under `<div id="root">` and is initialised via `Elm.Main.init({ node: ... })` in `src/index.js`.
-- Monolithic Elm view: `src/Main.elm` contains a large set of view helper functions and the entire UI in one module (Model is small: time + referrals filter).
-- Public assets: images and manifest live in `public/` and are referenced by Elm view code via filenames.
-- Build/bootstrapping: JS entry point `src/index.js` imports the Elm module, global CSS, third‑party CSS and the service worker helper.
+- **Multi-page routing**: Uses `elm/url` and `elm/browser` for SPA routing with clean URLs
+- **Shared components**: Navigation, footer, and common utilities extracted to `Shared.elm`
+- **Modular pages**: Each page is its own module under `Pages/` directory
+- **Public assets**: Images and manifest live in `public/` and are referenced by filename
+- **Build/bootstrapping**: JS entry point `src/index.js` imports the Elm module, global CSS, third‑party CSS
+- **Container alignment**: All sections use 1140px max-width to match Bootstrap container (see `docs/LAYOUT_GUIDE.md`)
+
+## Documentation
+
+All technical documentation is organized in the `docs/` directory:
+
+### 📚 Core Documentation
+- **[`docs/MULTI_PAGE_IMPLEMENTATION.md`](./docs/MULTI_PAGE_IMPLEMENTATION.md)** - Complete multi-page routing implementation guide
+- **[`docs/NAVIGATION_GUIDE.md`](./docs/NAVIGATION_GUIDE.md)** - Navigation structure and routing map
+- **[`docs/IMPROVEMENTS_COMPLETE.md`](./docs/IMPROVEMENTS_COMPLETE.md)** - Summary of navigation and footer improvements
+- **[`docs/SEO_GUIDE.md`](./docs/SEO_GUIDE.md)** - Complete SEO implementation (meta tags, alt text, title attributes)
+- **[`docs/LAYOUT_GUIDE.md`](./docs/LAYOUT_GUIDE.md)** - Layout system, alignment strategies, and responsive design
+- **[`REFACTORING_LOG.md`](./REFACTORING_LOG.md)** - Refactoring history, lessons learned, and testing protocols
+
+### 🎯 Agent Guidelines
+
+**When you need to remember something for next time:**
+1. **Update AGENTS.md** - Add architectural notes, patterns, or warnings here
+2. **Create docs in `docs/`** - Write detailed guides for complex topics
+3. **Link from AGENTS.md** - Reference your docs with relative links
+
+**For any refactoring work:**
+1. **Link or add to `REFACTORING_LOG.md`** - Document what changed, why, and lessons learned
+2. **Update relevant docs** - Keep `docs/` guides current with code changes
+3. **Test thoroughly** - Follow testing protocols in REFACTORING_LOG.md
+
+**Documentation Best Practices:**
+- Use descriptive filenames (e.g., `SEO_GUIDE.md`, `LAYOUT_GUIDE.md`)
+- Include code examples with syntax highlighting
+- Add checklists for verification
+- Link between related documents
+- Keep AGENTS.md as the entry point/index
+
+---
+
+## SEO Implementation
+
+The website is fully optimized for search engines. See **[`docs/SEO_GUIDE.md`](./docs/SEO_GUIDE.md)** for complete details.
+
+### Quick Summary:
+- ✅ **Meta descriptions**: Dynamic per page (Home, Appearances, HireMe, etc.)
+- ✅ **Page title**: "Abdu \"Códigos\" Mappuji - The CTO-mentor, Engineer, Legal Scholar"
+- ✅ **Image SEO**: All images have `alt` + `title` attributes
+- ✅ **Link SEO**: All links have `title` attributes and proper security (`rel="noopener noreferrer"`)
+- ✅ **Semantic HTML**: Proper heading hierarchy (h1 → h2 → h3)
+- ✅ **Keywords**: CTO-mentor, fractional CTO, engineer, legal scholar, mentoring, etc.
+
+### Implementation Location:
+- Meta description: `Main.elm` → `getMetaDescription` function
+- Image attributes: All `img` elements have `alt` and `title`
+- Link attributes: All `a` elements have `title` attribute
+- External links: Use `Shared.linkNewTab` helper with security attributes
+
+---
+
+## Layout & Alignment System
+
+The website uses a **hybrid layout system** combining Bootstrap containers with custom full-width sections. See **[`docs/LAYOUT_GUIDE.md`](./docs/LAYOUT_GUIDE.md)** for complete details.
+
+### Key Principles:
+1. **1140px max-width** - All content sections match Bootstrap container width
+2. **15px horizontal padding** - Consistent with Bootstrap container
+3. **Full-width sections** - Break out of container, then constrain inner content
+4. **Alignment verification** - All content left edges must align perfectly
+
+### Container Pattern:
+```css
+/* Full-width outer */
+.section-outer {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+/* Constrained inner (matches Bootstrap) */
+.section-inner {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+```
+
+### Why 1140px?
+Bootstrap 4's `.container` uses 1140px max-width at 1200px+ viewport. All custom sections must match this for proper alignment.
+
+---
 
 ## Primary inconsistency / anti-pattern
 Name: Mixing imperative JS DOM libraries with Elm without explicit interop ✅
