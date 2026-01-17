@@ -5,7 +5,8 @@ import * as serviceWorker from './serviceWorker';
 import './kit-form.js';
 
 Elm.Main.init({
-  node: document.getElementById('root')
+  node: document.getElementById('root'),
+  flags: null
 });
 
 // If you want your app to work offline and load faster, you can change
