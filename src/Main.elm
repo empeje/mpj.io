@@ -115,7 +115,7 @@ update msg model =
 
 view : Model -> Browser.Document Msg
 view model =
-    { title = "Abdu Códigos Mappuji"
+    { title = "Abdu \"Códigos\" Mappuji - The CTO-mentor, Engineer, Legal Scholar"
     , body =
         [ div [ class "container content" ]
             [ Shared.viewNav (routeToString model.route)
