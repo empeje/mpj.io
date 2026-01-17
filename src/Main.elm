@@ -2,8 +2,8 @@ module Main exposing (..)
 
 import Browser
 import Browser.Navigation as Nav
-import Html exposing (Html, div)
-import Html.Attributes exposing (class)
+import Html exposing (Html, div, node)
+import Html.Attributes exposing (attribute, class, name)
 import Pages.Appearances
 import Pages.Entrepreneurship
 import Pages.HireMe
@@ -117,13 +117,39 @@ view : Model -> Browser.Document Msg
 view model =
     { title = "Abdu \"Códigos\" Mappuji - The CTO-mentor, Engineer, Legal Scholar"
     , body =
-        [ div [ class "container content" ]
+        [ node "meta" [ name "description", attribute "content" (getMetaDescription model.route) ] []
+        , div [ class "container content" ]
             [ Shared.viewNav (routeToString model.route)
             , viewPage model
             ]
         , Shared.viewFooter model.time
         ]
     }
+
+
+getMetaDescription : Route -> String
+getMetaDescription route =
+    case route of
+        Home ->
+            "Abdu Códigos Mappuji is a world-class CTO-mentor, engineer at Bol, and legal scholar. Mentoring engineers at Amazon, Netflix, NVIDIA, and other big tech companies. Subscribe to his newsletter with 2,000+ subscribers."
+
+        Appearances ->
+            "Public speaking engagements, tech talks, and media coverage by Abdu Códigos Mappuji. Featured in IEEE, Leanpub, Venture Magazine, Coinmonks, and Compfest. Watch talks on Web3, blockchain, DevOps, and software engineering."
+
+        HireMe ->
+            "Hire Abdu Códigos Mappuji as your fractional CTO or join exclusive mentoring programs. Work with a 5-star Codementor who has mentored engineers from Amazon, Netflix, and NVIDIA. Get technical guidance for world-class products."
+
+        Writings ->
+            "Blogs, publications, and written works by Abdu Códigos Mappuji. Read tech articles on Medium, Substack, and Codementor. Academic publications on IEEE, engineering research, and software development best practices."
+
+        Entrepreneurship ->
+            "Entrepreneurial ventures and investments by Abdu Códigos Mappuji. Founded Kulkul Tech with 100% CEO approval on Glassdoor. Angel investor in YC companies including AptDeco, Airthium, and InnaMed."
+
+        Offers ->
+            "Special offers and referral links curated by Abdu Códigos Mappuji. Get exclusive benefits for Perplexity AI, Wise, and other premium services. Sign up through these links for special discounts and bonuses."
+
+        NotFound ->
+            "Page not found on Abdu Códigos Mappuji's website. Return to the home page to explore mentoring services, tech talks, blog posts, and entrepreneurial ventures."
 
 
 viewPage : Model -> Html Msg
