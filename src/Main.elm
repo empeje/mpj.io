@@ -65,6 +65,7 @@ view model =
     div [ class "container content" ]
         [ viewHeader
         , viewNewsletter
+        , viewAsSeenAt
         , viewBreak
         , viewRecentEvent
         , viewBreak
@@ -125,6 +126,25 @@ viewNewsletter =
                 [ text "Sign up to join more than 2,000 subscribers who receive Abdu's essays delivered to their inbox every week." ]
             ]
         , node "kit-form" [] []
+        ]
+
+
+viewAsSeenAt : Html Msg
+viewAsSeenAt =
+    div [ class "as-seen-at-hero" ]
+        [ div [ class "as-seen-at-content" ]
+            [ h2 [ class "as-seen-at-title" ] [ text "As seen at" ]
+            , div [ class "as-seen-at-logos" ]
+                [ linkNewTab [ hrefWithUtmSource "https://ieeexplore.ieee.org/author/37086081499", class "logo-link" ]
+                    [ img [ src "coverages/ieee.png", alt "IEEE", class "coverage-logo" ] [] ]
+                , linkNewTab [ hrefWithUtmSource "https://leanpub.com/u/empeje", class "logo-link" ]
+                    [ img [ src "coverages/leanpub.svg", alt "Leanpub", class "coverage-logo" ] [] ]
+                , linkNewTab [ hrefWithUtmSource "https://blog.venturemagazine.net/", class "logo-link" ]
+                    [ img [ src "coverages/venturemagazine.png", alt "Venture Magazine", class "coverage-logo" ] [] ]
+                , linkNewTab [ hrefWithUtmSource "https://medium.com/coinmonks", class "logo-link" ]
+                    [ img [ src "coverages/coinmonks.png", alt "Coinmonks", class "coverage-logo" ] [] ]
+                ]
+            ]
         ]
 
 

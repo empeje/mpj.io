@@ -108,6 +108,97 @@ kit-form {
 }
 
 /* ============================================
+   AS SEEN AT HERO SECTION
+   ============================================ */
+
+.as-seen-at-hero {
+  background-color: var(--color-primary);
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  margin-top: 0;
+  margin-bottom: 40px;
+  padding: 18px 0;
+}
+
+.as-seen-at-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  text-align: center;
+}
+
+.as-seen-at-title {
+  font-size: 1em;
+  margin-bottom: 12px;
+  color: white;
+  font-family: var(--font-sans);
+  font-weight: bold;
+}
+
+.as-seen-at-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.logo-link {
+  display: inline-block;
+  padding: 8px 12px;
+  background-color: white;
+  border-radius: 4px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.coverage-logo {
+  height: 28px;
+  width: auto;
+  max-width: 100px;
+  object-fit: contain;
+  display: block;
+}
+
+@media (max-width: 767px) {
+  .as-seen-at-hero {
+    padding: 12px 0;
+    margin-bottom: 30px;
+  }
+
+  .as-seen-at-content {
+    padding: 0 20px;
+  }
+
+  .as-seen-at-title {
+    font-size: 0.9em;
+    margin-bottom: 10px;
+  }
+
+  .as-seen-at-logos {
+    gap: 20px;
+  }
+
+  .logo-link {
+    padding: 6px 10px;
+  }
+
+  .coverage-logo {
+    height: 22px;
+    max-width: 80px;
+  }
+}
+
+/* ============================================
    HERO SECTION
    ============================================ */
 
