@@ -1,1 +1,5 @@
+# Domain redirect from Netlify subdomain to custom domain
+https://mpj.netlify.app/*  https://mpj.io/:splat  301!
+
+# SPA fallback
 /*    /index.html   200
