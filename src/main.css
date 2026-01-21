@@ -185,8 +185,9 @@ kit-form {
   display: block;
 }
 
-/* Invert Compfest logo for better visibility */
-.coverage-logo[alt="Compfest"] {
+/* Invert Compfest and Ya!vaConf logos for better visibility */
+.coverage-logo[alt="Compfest"],
+.coverage-logo[alt="Ya!vaConf"] {
   filter: invert(1);
 }
 
