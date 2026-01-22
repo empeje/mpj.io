@@ -31,6 +31,38 @@ All technical documentation is organized in the `docs/` directory:
 
 ### 🎯 Agent Guidelines
 
+**CRITICAL RULE: After any working solution is achieved, you MUST document learnings.**
+
+### When You Solve a Problem:
+1. **Immediately capture the learning** — Don't wait, document while the solution is fresh
+2. **Choose the right location:**
+   - **AGENTS.md** — Add architectural patterns, warnings, or quick reference notes
+   - **docs/** — Create detailed guides for complex topics (e.g., `SEO_GUIDE.md`, `LAYOUT_GUIDE.md`)
+   - **REFACTORING_LOG.md** — Document refactoring sessions with what changed, why, and lessons learned
+3. **Link documents together** — Create a documentation web with relative links
+4. **Update indexes** — Ensure AGENTS.md references new documentation
+
+### What to Document:
+- **Root cause** — What was actually wrong?
+- **Solution approach** — What fixed it and why?
+- **Anti-patterns** — What didn't work and should be avoided?
+- **Best practices** — What patterns emerged that should be reused?
+- **Gotchas** — What edge cases or pitfalls exist?
+- **Testing protocols** — How to verify the solution works?
+
+### Documentation Quality Standards:
+- Use descriptive filenames (not `notes.md` or `temp.md`)
+- Include code examples with syntax highlighting
+- Add verification checklists
+- Provide context for future developers
+- Keep it concise but complete
+
+**Remember: Undocumented knowledge is lost knowledge. Document every win.**
+
+---
+
+### Quick Documentation Workflows:
+
 **When you need to remember something for next time:**
 1. **Update AGENTS.md** - Add architectural notes, patterns, or warnings here
 2. **Create docs in `docs/`** - Write detailed guides for complex topics

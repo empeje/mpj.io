@@ -78,7 +78,7 @@ viewFooter time =
                 , a [ href "/offers", class "footer-link", title "Special offers and referral links" ] [ text "Offers" ]
                 ]
             , div [ class "footer-quick-links" ]
-                [ Html.h3 [] [ text "Community" ]
+                [ Html.h3 [] [ text "Connect" ]
                 , linkNewTab [ hrefWithUtmSource "https://discord.com/invite/TEAJHURh2e", class "footer-link", title "Join private Discord community" ] [ text "Private Community" ]
                 , linkNewTab [ hrefWithUtmSource "https://lu.ma/u/mpj", class "footer-link", title "Find upcoming events on Lu.ma" ] [ text "Lu.ma" ]
                 , linkNewTab [ hrefWithUtmSource "https://www.meetup.com/members/279285007/", class "footer-link", title "Connect on Meetup" ] [ text "Meetup" ]

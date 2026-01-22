@@ -382,8 +382,8 @@ kit-form {
 
 .footer {
   margin-top: 0;
-  padding: 40px 0;
-  background-color: var(--color-grey-pastel);
+  padding: 64px 0;
+  background-color: #e8e8e8;
   color: var(--color-accent);
   width: 100vw;
   position: relative;
@@ -401,7 +401,7 @@ kit-form {
   justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
-  gap: 40px;
+  gap: 48px;
 }
 
 .footer-copyright {
@@ -411,11 +411,21 @@ kit-form {
   line-height: 1.6;
 }
 
+.footer-copyright p:first-child {
+  font-weight: bold;
+  color: #4b5563;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: -0.025em;
+}
+
 .footer-easter-egg {
-  font-size: 0.9em;
-  line-height: 1.6;
-  margin-top: 10px;
-  color: var(--color-muted);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin-top: 0;
+  color: #6b7280;
+  font-style: italic;
+  max-width: 28rem;
 }
 
 .footer-quick-links {
@@ -424,55 +434,44 @@ kit-form {
 
 .footer-quick-links h3 {
   color: var(--color-accent);
-  font-size: 1.2em;
-  margin: 0 0 20px 0;
+  font-size: 1.125rem;
+  margin: 0 0 16px 0;
   font-weight: bold;
 }
 
 .footer-link {
-  display: block;
-  color: var(--color-accent);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #4b5563;
   text-decoration: none;
-  padding: 8px 0 8px 12px;
-  border-left: 3px solid var(--color-accent);
+  font-size: 0.875rem;
   margin: 8px 0;
-  transition: all 0.3s ease;
-  opacity: 0.85;
+  transition: color 0.3s ease;
 }
 
 .footer-link:hover {
-  border-left-width: 5px;
-  /* Use margin compensation instead of padding change to prevent layout shift */
-  margin-left: -2px;
-  opacity: 1;
+  color: var(--color-primary);
 }
 
-/* Color rotation for all footer links - applies to each footer-link globally */
-.footer-link:nth-of-type(1) {
-  border-left-color: var(--color-danger);
+.footer-link::before {
+  content: '';
+  width: 4px;
+  height: 12px;
+  flex-shrink: 0;
 }
 
-.footer-link:nth-of-type(1):hover {
+/* Color rotation for link indicators */
+.footer-link:nth-of-type(1)::before {
   background-color: var(--color-danger);
-  color: white;
 }
 
-.footer-link:nth-of-type(2) {
-  border-left-color: var(--color-primary);
-}
-
-.footer-link:nth-of-type(2):hover {
+.footer-link:nth-of-type(2)::before {
   background-color: var(--color-primary);
-  color: white;
 }
 
-.footer-link:nth-of-type(3) {
-  border-left-color: var(--color-blue);
-}
-
-.footer-link:nth-of-type(3):hover {
+.footer-link:nth-of-type(3)::before {
   background-color: var(--color-blue);
-  color: white;
 }
 
 
