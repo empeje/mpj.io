@@ -589,16 +589,11 @@ a.deco-none, a.deco-none:hover {
   background-color: var(--color-blue);
 }
 
-/* Color for Blog link (2nd li) - Green */
-.navigation li:nth-child(2) a:not(.dropdown a) {
-  border-left-color: var(--color-primary);
+/* Color rotation for dropdown buttons (2nd-5th li) */
+.navigation li:nth-child(2) .dropbtn {
+  border-left-color: var(--color-primary); /* Product - Green */
 }
 
-.navigation li:nth-child(2) a:not(.dropdown a):hover {
-  background-color: var(--color-primary);
-}
-
-/* Color rotation for dropdown buttons (3rd-5th li) */
 .navigation li:nth-child(3) .dropbtn {
   border-left-color: var(--color-danger); /* Erudition - Red */
 }
@@ -615,6 +610,10 @@ a.deco-none, a.deco-none:hover {
   border-left-width: 5px;
   padding-left: 18px;
   color: white;
+}
+
+.navigation li:nth-child(2) .dropbtn:hover {
+  background-color: var(--color-primary); /* Green */
 }
 
 .navigation li:nth-child(3) .dropbtn:hover {

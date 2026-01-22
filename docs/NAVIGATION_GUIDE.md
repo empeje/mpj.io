@@ -5,9 +5,11 @@
 ```
 ┌─ Home (/)
 │
-├─ Blog (external: https://blog.mpj.io)
+├─ Product ▼
+│  └─ Sistemas (external: https://sistemas.mpj.io)
 │
 ├─ Erudition ▼
+│  ├─ Blog (external: https://blog.mpj.io)
 │  ├─ Writings (/writings) ← NEW PAGE
 │  ├─ Substack (external)
 │  ├─ YouTube (external)
@@ -15,11 +17,6 @@
 │
 ├─ Jurisprudence ▼
 │  └─ LawTech (external)
-│
-├─ Community ▼
-│  ├─ Lu.ma (external)
-│  ├─ Meetup (external)
-│  └─ Appearances (/appearances) ← NEW PAGE
 │
 └─ More ▼
    ├─ Hire Me (/hire-me) ← NEW PAGE

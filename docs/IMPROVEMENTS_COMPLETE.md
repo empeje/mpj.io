@@ -88,7 +88,7 @@ New subsection with iconic design links to:
 ```
 ┌─────────────────────────────────────────┐
 │                                         │
-│      Home  Blog  Erudition▼  ...      │  ← Centered
+│    Home  Product▼  Erudition▼  ...    │  ← Right-aligned
 │                                         │
 └─────────────────────────────────────────┘
 ```

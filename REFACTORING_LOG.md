@@ -1,7 +1,7 @@
 # CSS/Elm Refactoring Log
 
 **Status:** Ongoing  
-**Last Updated:** January 17, 2026  
+**Last Updated:** January 23, 2026  
 **Overall Score:** 10/10
 
 This document tracks the detailed history and lessons learned from CSS/Elm refactoring efforts on the website.
@@ -1018,3 +1018,49 @@ a [ href "/hire-me", title "Hire as fractional CTO or mentor" ] [ text "Hire Me"
 - `NAVIGATION_GUIDE.md` → `docs/NAVIGATION_GUIDE.md`
 
 ---
+
+## Session 4: Navigation Restructuring - Product Menu & Blog Migration (Jan 23, 2026)
+
+### ✅ Navigation Updates Implemented
+
+#### Navigation Menu Reorganization
+**What we did:**
+- Moved "Blog" link from top-level menu to Erudition submenu
+- Created new "Product" dropdown menu in place of Blog
+- Added "Sistemas" (https://sistemas.mpj.io) as first item under Product menu
+- Updated CSS color rotation to match new 5-item structure
+
+**New navigation structure:**
+1. Home - Blue
+2. Product ▼ - Green
+   - Sistemas
+3. Erudition ▼ - Red
+   - Blog (moved here)
+   - Writings
+   - Substack
+   - YouTube
+   - Leanpub
+4. Jurisprudence ▼ - Blue
+   - LawTech
+5. More ▼ - Green
+   - Hire Me
+   - Entrepreneurship
+   - Google Scholar
+   - Legacy Blog
+   - Offers
+
+**Why it matters:**
+- Better organization: Blog is naturally part of Erudition content
+- Dedicated Product section for showcasing technical products
+- Maintains consistent navigation color rotation pattern
+- Cleaner top-level navigation structure
+
+**Files changed:**
+- `src/Shared.elm` - Navigation structure
+- `src/main.css` - Navigation color rotation (nth-child selectors)
+- `docs/NAVIGATION_GUIDE.md` - Updated documentation
+- `docs/IMPROVEMENTS_COMPLETE.md` - Updated navigation diagram
+- `REFACTORING_LOG.md` - This session
+
+---
+
