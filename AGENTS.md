@@ -27,6 +27,7 @@ All technical documentation is organized in the `docs/` directory:
 - **[`docs/IMPROVEMENTS_COMPLETE.md`](./docs/IMPROVEMENTS_COMPLETE.md)** - Summary of navigation and footer improvements
 - **[`docs/SEO_GUIDE.md`](./docs/SEO_GUIDE.md)** - Complete SEO implementation (meta tags, alt text, title attributes)
 - **[`docs/LAYOUT_GUIDE.md`](./docs/LAYOUT_GUIDE.md)** - Layout system, alignment strategies, and responsive design
+- **[`docs/FOOTER_WHITESPACE_FIX.md`](./docs/FOOTER_WHITESPACE_FIX.md)** - Footer white space bug fix and full-width technique details
 - **[`REFACTORING_LOG.md`](./REFACTORING_LOG.md)** - Refactoring history, lessons learned, and testing protocols
 
 ### 🎯 Agent Guidelines
