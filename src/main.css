@@ -9,6 +9,11 @@
   height: inherit;
 }
 
+/* Comprehensive reset to prevent white space issues */
+* {
+  box-sizing: border-box;
+}
+
 :root {
   /* Color tokens */
   --color-primary: #00917C;
@@ -34,9 +39,33 @@
   --sp-4: 32px;
 }
 
-html, body, #root {
-  height: 100%;
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
   font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+#root {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+}
+
+/* Ensure Bootstrap container doesn't add extra spacing */
+.container {
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.container.content {
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 /* Global link styling - remove underlines for consistency with iconic design */
@@ -382,6 +411,7 @@ kit-form {
 
 .footer {
   margin-top: 0;
+  margin-bottom: 0;
   padding: 64px 0;
   background-color: #e8e8e8;
   color: var(--color-accent);
@@ -409,6 +439,10 @@ kit-form {
   min-width: 300px;
   font-size: 1em;
   line-height: 1.6;
+}
+
+.footer-copyright p {
+  margin-bottom: 0;
 }
 
 .footer-copyright p:first-child {
