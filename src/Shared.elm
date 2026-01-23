@@ -174,7 +174,7 @@ talksData =
 viewRecentEvent : Html msg
 viewRecentEvent =
     List.append
-        [ Html.h1 [] [ text "Recent Event" ]
+        [ Html.h2 [] [ text "Recent Event" ]
         , p [] [ text "Please refer below for an interesting event that I recently participated / involved with" ]
         ]
         (viewList (List.take 2 talksData))

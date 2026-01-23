@@ -24,6 +24,9 @@ import Url.Parser as Parser exposing (Parser, map, oneOf, s, top)
 port updateStructuredData : String -> Cmd msg
 
 
+port updateOgUrl : String -> Cmd msg
+
+
 
 ---- MODEL ----
 
@@ -57,7 +60,11 @@ init _ url key =
       , key = key
       , offersModel = Pages.Offers.init
       }
-    , Cmd.batch [ getTime, updateStructuredData (getStructuredDataForRoute route) ]
+    , Cmd.batch
+        [ getTime
+        , updateStructuredData (getStructuredDataForRoute route)
+        , updateOgUrl (getCanonicalUrl route)
+        ]
     )
 
 
@@ -118,7 +125,12 @@ update msg model =
                 newRoute =
                     parseUrl url
             in
-            ( { model | route = newRoute }, updateStructuredData (getStructuredDataForRoute newRoute) )
+            ( { model | route = newRoute }
+            , Cmd.batch
+                [ updateStructuredData (getStructuredDataForRoute newRoute)
+                , updateOgUrl (getCanonicalUrl newRoute)
+                ]
+            )
 
         OffersMsg offersMsg ->
             ( { model | offersModel = Pages.Offers.update offersMsg model.offersModel }, Cmd.none )

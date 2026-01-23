@@ -27,6 +27,7 @@ All technical documentation is organized in the `docs/` directory:
 - **[`docs/IMPROVEMENTS_COMPLETE.md`](./docs/IMPROVEMENTS_COMPLETE.md)** - Summary of navigation and footer improvements
 - **[`docs/SEO_GUIDE.md`](./docs/SEO_GUIDE.md)** - Complete SEO implementation (meta tags, alt text, title attributes)
 - **[`docs/SEO_AUDIT_2026.md`](./docs/SEO_AUDIT_2026.md)** - January 2026 SEO audit: Fixed title/description lengths & added canonical URLs
+- **[`docs/DYNAMIC_OG_URLS_H1_FIX.md`](./docs/DYNAMIC_OG_URLS_H1_FIX.md)** - Dynamic Open Graph URLs & multiple H1 fix (Jan 2026)
 - **[`docs/STRUCTURED_DATA_GUIDE.md`](./docs/STRUCTURED_DATA_GUIDE.md)** - JSON-LD structured data for reviews (page-specific via Elm)
 - **[`docs/APPEARANCES_STRUCTURED_DATA.md`](./docs/APPEARANCES_STRUCTURED_DATA.md)** - ItemList structured data for 21 tech talks and speaking engagements
 - **[`docs/PAGE_SPECIFIC_STRUCTURED_DATA.md`](./docs/PAGE_SPECIFIC_STRUCTURED_DATA.md)** - Why and how structured data is page-specific

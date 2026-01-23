@@ -28,6 +28,23 @@ if (app.ports && app.ports.updateStructuredData) {
   });
 }
 
+// Handle Open Graph URL updates based on route
+if (app.ports && app.ports.updateOgUrl) {
+  app.ports.updateOgUrl.subscribe(function(url) {
+    // Update og:url meta tag
+    let ogUrlMeta = document.querySelector('meta[property="og:url"]');
+    if (ogUrlMeta) {
+      ogUrlMeta.setAttribute('content', url);
+    }
+
+    // Update twitter:url meta tag
+    let twitterUrlMeta = document.querySelector('meta[property="twitter:url"]');
+    if (twitterUrlMeta) {
+      twitterUrlMeta.setAttribute('content', url);
+    }
+  });
+}
+
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
