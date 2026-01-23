@@ -26,6 +26,7 @@ All technical documentation is organized in the `docs/` directory:
 - **[`docs/NAVIGATION_GUIDE.md`](./docs/NAVIGATION_GUIDE.md)** - Navigation structure and routing map
 - **[`docs/IMPROVEMENTS_COMPLETE.md`](./docs/IMPROVEMENTS_COMPLETE.md)** - Summary of navigation and footer improvements
 - **[`docs/SEO_GUIDE.md`](./docs/SEO_GUIDE.md)** - Complete SEO implementation (meta tags, alt text, title attributes)
+- **[`docs/SEO_AUDIT_2026.md`](./docs/SEO_AUDIT_2026.md)** - January 2026 SEO audit: Fixed title/description lengths & added canonical URLs
 - **[`docs/STRUCTURED_DATA_GUIDE.md`](./docs/STRUCTURED_DATA_GUIDE.md)** - JSON-LD structured data for reviews (page-specific via Elm)
 - **[`docs/APPEARANCES_STRUCTURED_DATA.md`](./docs/APPEARANCES_STRUCTURED_DATA.md)** - ItemList structured data for 21 tech talks and speaking engagements
 - **[`docs/PAGE_SPECIFIC_STRUCTURED_DATA.md`](./docs/PAGE_SPECIFIC_STRUCTURED_DATA.md)** - Why and how structured data is page-specific
@@ -92,11 +93,12 @@ All technical documentation is organized in the `docs/` directory:
 
 ## SEO Implementation
 
-The website is fully optimized for search engines. See **[`docs/SEO_GUIDE.md`](./docs/SEO_GUIDE.md)** for complete details.
+The website is fully optimized for search engines. See **[`docs/SEO_GUIDE.md`](./docs/SEO_GUIDE.md)** for complete details and **[`docs/SEO_AUDIT_2026.md`](./docs/SEO_AUDIT_2026.md)** for January 2026 improvements.
 
 ### Quick Summary:
-- ✅ **Meta descriptions**: Dynamic per page (Home, Appearances, HireMe, etc.)
-- ✅ **Page title**: "Abdu \"Códigos\" Mappuji - The CTO-mentor, Engineer, Legal Scholar"
+- ✅ **Page title:** 54 chars (optimized Jan 2026) - "Abdu Mappuji - CTO-Mentor, Engineer & Legal Scholar"
+- ✅ **Meta descriptions:** All pages 140-160 chars (optimized Jan 2026) - Dynamic per page
+- ✅ **Canonical URLs:** Dynamic per route - `https://mpj.io/{route}` (added Jan 2026)
 - ✅ **Image SEO**: All images have `alt` + `title` attributes
 - ✅ **Link SEO**: All links have `title` attributes and proper security (`rel="noopener noreferrer"`)
 - ✅ **Semantic HTML**: Proper heading hierarchy (h1 → h2 → h3)
@@ -106,12 +108,20 @@ The website is fully optimized for search engines. See **[`docs/SEO_GUIDE.md`](.
   - Appearances page: ItemList with 21 Event items (tech talks & conferences)
 
 ### Implementation Location:
-- Meta description: `Main.elm` → `getMetaDescription` function
+- Page title: `Main.elm` → `view` function (line 133)
+- Meta description: `Main.elm` → `getMetaDescription` function (optimized lengths)
+- Canonical URLs: `Main.elm` → `getCanonicalUrl` function (new, added Jan 2026)
 - Structured data: `Main.elm` → `getStructuredDataForRoute` function (route-specific rendering)
 - JavaScript injection: `index.js` → port handler that injects into `document.head`
 - Image attributes: All `img` elements have `alt` and `title`
 - Link attributes: All `a` elements have `title` attribute
 - External links: Use `Shared.linkNewTab` helper with security attributes
+
+**Recent Improvements (Jan 2026):**
+- Shortened title from 64 to 54 chars (fits Google's 60-char limit)
+- Optimized all meta descriptions to 140-160 chars (fits Google's 160-char limit)
+- Added dynamic canonical URLs for all pages (prevents duplicate content issues)
+- See [`docs/SEO_AUDIT_2026.md`](./docs/SEO_AUDIT_2026.md) for complete audit report
 
 **Important:** Structured data is dynamically rendered by Elm and injected into `<head>` via JavaScript ports. Only appears on pages where contextually relevant (HireMe and Appearances). See [`docs/PAGE_SPECIFIC_STRUCTURED_DATA.md`](./docs/PAGE_SPECIFIC_STRUCTURED_DATA.md) for details.
 

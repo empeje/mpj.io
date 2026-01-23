@@ -130,9 +130,10 @@ update msg model =
 
 view : Model -> Browser.Document Msg
 view model =
-    { title = "Abdu \"Códigos\" Mappuji - The CTO-mentor, Engineer, Legal Scholar"
+    { title = "Abdu Códigos - CTO-Mentor, Engineer & Legal Scholar"
     , body =
         [ node "meta" [ name "description", attribute "content" (getMetaDescription model.route) ] []
+        , node "link" [ attribute "rel" "canonical", attribute "href" (getCanonicalUrl model.route) ] []
         , div [ class "container content" ]
             [ Shared.viewNav (routeToString model.route)
             , viewPage model
@@ -146,25 +147,54 @@ getMetaDescription : Route -> String
 getMetaDescription route =
     case route of
         Home ->
-            "Abdu Códigos Mappuji is a world-class CTO-mentor, engineer at Bol, and legal scholar. Mentoring engineers at Amazon, Netflix, NVIDIA, and other big tech companies. Subscribe to his newsletter with 2,000+ subscribers."
+            "World-class CTO-mentor & engineer. Mentoring engineers at Amazon, Netflix, NVIDIA. 5-star rated. Subscribe to newsletter with 2,000+ subscribers."
 
         Appearances ->
-            "Public speaking engagements, tech talks, and media coverage by Abdu Códigos Mappuji. Featured in IEEE, Leanpub, Venture Magazine, Coinmonks, and Compfest. Watch talks on Web3, blockchain, DevOps, and software engineering."
+            "Tech talks & speaking by Abdu Mappuji. Featured in IEEE, Web Directions. Topics: Web3, blockchain, DevOps, Python, Elm. 21 talks since 2017."
 
         HireMe ->
-            "Hire Abdu Códigos Mappuji as your fractional CTO or join exclusive mentoring programs. Work with a 5-star Codementor who has mentored engineers from Amazon, Netflix, and NVIDIA. Get technical guidance for world-class products."
+            "Hire Abdu Mappuji as fractional CTO or exclusive mentor. 5-star Codementor. Mentored engineers from Amazon, Netflix, NVIDIA. Packages from $70."
 
         Writings ->
-            "Blogs, publications, and written works by Abdu Códigos Mappuji. Read tech articles on Medium, Substack, and Codementor. Academic publications on IEEE, engineering research, and software development best practices."
+            "Blogs & publications by Abdu Mappuji. Tech articles on Medium, Substack, Codementor. Academic papers on IEEE. Software engineering best practices."
 
         Entrepreneurship ->
-            "Entrepreneurial ventures and investments by Abdu Códigos Mappuji. Founded Kulkul Tech with 100% CEO approval on Glassdoor. Angel investor in YC companies including AptDeco, Airthium, and InnaMed."
+            "Founded Kulkul Tech (100% CEO approval). Angel investor in YC companies: AptDeco, Airthium, InnaMed. Tech entrepreneurship & venture investments."
 
         Offers ->
-            "Special offers and referral links curated by Abdu Códigos Mappuji. Get exclusive benefits for Perplexity AI, Wise, and other premium services. Sign up through these links for special discounts and bonuses."
+            "Exclusive referral offers curated by Abdu Mappuji. Get special benefits for Perplexity AI, Wise, and premium tech services with bonus discounts."
 
         NotFound ->
-            "Page not found on Abdu Códigos Mappuji's website. Return to the home page to explore mentoring services, tech talks, blog posts, and entrepreneurial ventures."
+            "Page not found. Explore Abdu Mappuji's mentoring services, tech talks, blog posts, and entrepreneurial ventures. Return to home page."
+
+
+getCanonicalUrl : Route -> String
+getCanonicalUrl route =
+    let
+        baseUrl =
+            "https://mpj.io"
+    in
+    case route of
+        Home ->
+            baseUrl ++ "/"
+
+        Appearances ->
+            baseUrl ++ "/appearances"
+
+        HireMe ->
+            baseUrl ++ "/hire-me"
+
+        Writings ->
+            baseUrl ++ "/writings"
+
+        Entrepreneurship ->
+            baseUrl ++ "/entrepreneurship"
+
+        Offers ->
+            baseUrl ++ "/offers"
+
+        NotFound ->
+            baseUrl ++ "/"
 
 
 getStructuredDataForRoute : Route -> String
