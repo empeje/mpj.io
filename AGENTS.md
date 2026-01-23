@@ -26,6 +26,11 @@ All technical documentation is organized in the `docs/` directory:
 - **[`docs/NAVIGATION_GUIDE.md`](./docs/NAVIGATION_GUIDE.md)** - Navigation structure and routing map
 - **[`docs/IMPROVEMENTS_COMPLETE.md`](./docs/IMPROVEMENTS_COMPLETE.md)** - Summary of navigation and footer improvements
 - **[`docs/SEO_GUIDE.md`](./docs/SEO_GUIDE.md)** - Complete SEO implementation (meta tags, alt text, title attributes)
+- **[`docs/STRUCTURED_DATA_GUIDE.md`](./docs/STRUCTURED_DATA_GUIDE.md)** - JSON-LD structured data for reviews (page-specific via Elm)
+- **[`docs/APPEARANCES_STRUCTURED_DATA.md`](./docs/APPEARANCES_STRUCTURED_DATA.md)** - ItemList structured data for 21 tech talks and speaking engagements
+- **[`docs/PAGE_SPECIFIC_STRUCTURED_DATA.md`](./docs/PAGE_SPECIFIC_STRUCTURED_DATA.md)** - Why and how structured data is page-specific
+- **[`docs/STRUCTURED_DATA_CHECKLIST.md`](./docs/STRUCTURED_DATA_CHECKLIST.md)** - Post-deployment tasks and tracking for structured data
+- **[`docs/IMPLEMENTATION_SUMMARY.md`](./docs/IMPLEMENTATION_SUMMARY.md)** - Quick overview of structured data implementation
 - **[`docs/SITEMAP_GUIDE.md`](./docs/SITEMAP_GUIDE.md)** - Sitemap implementation with automated weekly updates via GitHub Actions
 - **[`docs/OG_IMAGE_GUIDE.md`](./docs/OG_IMAGE_GUIDE.md)** - Open Graph image optimization guide and specifications
 - **[`docs/LAYOUT_GUIDE.md`](./docs/LAYOUT_GUIDE.md)** - Layout system, alignment strategies, and responsive design
@@ -96,12 +101,19 @@ The website is fully optimized for search engines. See **[`docs/SEO_GUIDE.md`](.
 - ✅ **Link SEO**: All links have `title` attributes and proper security (`rel="noopener noreferrer"`)
 - ✅ **Semantic HTML**: Proper heading hierarchy (h1 → h2 → h3)
 - ✅ **Keywords**: CTO-mentor, fractional CTO, engineer, legal scholar, mentoring, etc.
+- ✅ **Structured Data:** 
+  - HireMe page: Product with 5-star reviews (mentoring services)
+  - Appearances page: ItemList with 21 Event items (tech talks & conferences)
 
 ### Implementation Location:
 - Meta description: `Main.elm` → `getMetaDescription` function
+- Structured data: `Main.elm` → `getStructuredDataForRoute` function (route-specific rendering)
+- JavaScript injection: `index.js` → port handler that injects into `document.head`
 - Image attributes: All `img` elements have `alt` and `title`
 - Link attributes: All `a` elements have `title` attribute
 - External links: Use `Shared.linkNewTab` helper with security attributes
+
+**Important:** Structured data is dynamically rendered by Elm and injected into `<head>` via JavaScript ports. Only appears on pages where contextually relevant (HireMe and Appearances). See [`docs/PAGE_SPECIFIC_STRUCTURED_DATA.md`](./docs/PAGE_SPECIFIC_STRUCTURED_DATA.md) for details.
 
 ---
 
