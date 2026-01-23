@@ -26,6 +26,7 @@ All technical documentation is organized in the `docs/` directory:
 - **[`docs/NAVIGATION_GUIDE.md`](./docs/NAVIGATION_GUIDE.md)** - Navigation structure and routing map
 - **[`docs/IMPROVEMENTS_COMPLETE.md`](./docs/IMPROVEMENTS_COMPLETE.md)** - Summary of navigation and footer improvements
 - **[`docs/SEO_GUIDE.md`](./docs/SEO_GUIDE.md)** - Complete SEO implementation (meta tags, alt text, title attributes)
+- **[`docs/SITEMAP_GUIDE.md`](./docs/SITEMAP_GUIDE.md)** - Sitemap implementation with automated weekly updates via GitHub Actions
 - **[`docs/OG_IMAGE_GUIDE.md`](./docs/OG_IMAGE_GUIDE.md)** - Open Graph image optimization guide and specifications
 - **[`docs/LAYOUT_GUIDE.md`](./docs/LAYOUT_GUIDE.md)** - Layout system, alignment strategies, and responsive design
 - **[`docs/FOOTER_WHITESPACE_FIX.md`](./docs/FOOTER_WHITESPACE_FIX.md)** - Footer white space bug fix and full-width technique details

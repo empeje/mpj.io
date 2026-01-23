@@ -1,0 +1,66 @@
+name: Update Sitemap
+
+on:
+  schedule:
+    # Run every Sunday at 00:00 UTC (weekly)
+    - cron: '0 0 * * 0'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  update-sitemap:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Update sitemap lastmod dates
+        run: |
+          # Get current date in ISO format (YYYY-MM-DD)
+          CURRENT_DATE=$(date -u +"%Y-%m-%d")
+          
+          echo "Updating sitemap with date: $CURRENT_DATE"
+          
+          # Update both sitemap files
+          for sitemap_file in public/sitemap.xml build/sitemap.xml; do
+            if [ -f "$sitemap_file" ]; then
+              echo "Updating $sitemap_file"
+              
+              # Use sed to replace all lastmod dates
+              sed -i "s/<lastmod>[0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}<\/lastmod>/<lastmod>$CURRENT_DATE<\/lastmod>/g" "$sitemap_file"
+              
+              echo "✅ Updated $sitemap_file"
+            else
+              echo "⚠️  File not found: $sitemap_file"
+            fi
+          done
+
+      - name: Check for changes
+        id: check_changes
+        run: |
+          if git diff --quiet; then
+            echo "changes=false" >> $GITHUB_OUTPUT
+            echo "No changes to commit"
+          else
+            echo "changes=true" >> $GITHUB_OUTPUT
+            echo "Changes detected"
+          fi
+
+      - name: Commit and push changes
+        if: steps.check_changes.outputs.changes == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add public/sitemap.xml build/sitemap.xml
+          git commit -m "chore: update sitemap lastmod dates (automated weekly update)"
+          git push
+
+      - name: Summary
+        run: |
+          if [ "${{ steps.check_changes.outputs.changes }}" == "true" ]; then
+            echo "✅ Sitemap updated and pushed successfully"
+          else
+            echo "ℹ️  No changes needed - sitemap is already up to date"
+          fi
