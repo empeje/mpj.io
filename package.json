@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "env NODE_OPTIONS=--openssl-legacy-provider PORT=8001 elm-app start --no-browser",
-    "build": "env NODE_OPTIONS=--openssl-legacy-provider elm-app build"
+    "build": "env NODE_OPTIONS=--openssl-legacy-provider elm-app build",
+    "test": "elm-test"
   },
   "devDependencies": {
     "create-elm-app": "^5.22.0",

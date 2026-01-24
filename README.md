@@ -1,15 +1,43 @@
-# Motivation
+# mpj.io
 
-I'm not a computer science (CS) graduate, but I remember taking a CS class online and the professor starts with motivation. I want to start this Readme with motivation as well.
+[![Build Status](https://github.com/empeje/the-enterprise/actions/workflows/update-sitemap.yml/badge.svg)](https://github.com/empeje/the-enterprise/actions/workflows/update-sitemap.yml)
 
-I'm working in tech for a few years now, but I lost in a flurry of activity. I feel like most of my time spent working, but my work is not "creating" something new and valuable for the tech community. I want to do a transformation from being a tech-worker to a tech-creator. This website is the first step to contribute to the greater good.
+This is the official website for mpj.io, a personal website and blog built with Elm.
 
-For those who follow me, the reason I want to be a tech-creator is not for the tech-creator itself, but I enjoy building useful things. If what I do makes me happy, that's enough. So, if you want to be a tech-creator for the sake of becoming one with no other motivation, please rethink.
+## Features
 
-# Requirements
+This project includes a number of features to improve SEO and user experience:
 
-I have several requirements for my *upcoming* website.
+*   **Structured Data:** The website now includes structured data to help search engines understand the content of the site.
+*   **Open Graph Images:** The Open Graph images have been fixed to ensure that the correct images are displayed when the site is shared on social media.
+*   **Sitemap:** A new sitemap is automatically generated to help search engines crawl the site more efficiently.
 
-- Internationalization. It should provide at least two languages, English and Bahasa Indonesia. I write in these two languages and it is important to write in both languages as my audience in Indonesia might not fluent in English but I still want to reach them. Also, in the future, I might be learning a new language, so having an internationalization framework in-place is important.
-- Content. I want to provide articles, videos (from YouTube or maybe other places, who knows), codes, academic publications, and books.
-- It should be able to aggregate my writing in several places. I write in Medium, Codementor, Dev.to, and many more. If I write on the external sites, I want to let the original content there and have a hyperlink available on my site to the article.
+## Scripts
+
+This project uses npm to manage dependencies and run scripts. Here are the available scripts:
+
+*   `npm install`: Installs the project dependencies.
+*   `npm run dev`: Starts the development server at `http://localhost:8001`.
+*   `npm run build`: Builds the project for production.
+*   `npm test`: Runs the tests.
+
+## Deployment
+
+To deploy the website, you can use any static hosting service. Here are the steps for deploying to Netlify:
+
+1.  Connect your Git repository to Netlify.
+2.  Set the build command to `npm run build`.
+3.  Set the publish directory to `build`.
+4.  Deploy the site.
+
+## Contributing
+
+Please see the [CONTRIBUTING.md](CONTRIBUTING.md) file for details on how to contribute to this project. We welcome contributions of all kinds, from bug reports to new features.
+
+## Code of Conduct
+
+This project has a [Code of Conduct](CODE_OF_CONDUCT.md) that all contributors are expected to follow. Please read it before contributing.
+
+## License
+
+This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/). See the [LICENSE](LICENSE) file for details.
