@@ -317,7 +317,7 @@ linkNewTab [ href "https://...", title "Description" ] [ text "Link" ]
 - Bol (company)
 - UGM (Universitas Gadjah Mada)
 - Indonesia
-- Universitas Muhammadiyah
+- Universitas Sibermu Yogyakarta
 
 ---
 

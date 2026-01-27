@@ -32,7 +32,7 @@ viewHeader =
                     , p [ class "hero-credentials" ]
                         [ text "World-class Author and CTO-Mentor" ]
                     , p [ class "hero-description" ]
-                        [ text "Abdu is an engineer at Bol, trained in UGM & ITB, Indonesia's most premier institutions. He mentors the next generation of software engineers—many now work at Amazon, Netflix, NVIDIA, and other big tech. He also an active legal scholar with his studies in Universitas Muhammadiyah." ]
+                        [ text "Abdu is an engineer at Bol, trained in UGM & ITB, Indonesia's most premier institutions. He mentors the next generation of software engineers—many now work at Amazon, Netflix, NVIDIA, and other big tech. He also an active legal scholar with his studies in Universitas Sibermu Yogyakarta." ]
                     ]
                 ]
             ]
