@@ -32,7 +32,7 @@ viewHeader =
                     , p [ class "hero-credentials" ]
                         [ text "World-class Author and CTO-Mentor" ]
                     , p [ class "hero-description" ]
-                        [ text "Abdu is a tech leader with experience at Microsoft, Delivery Hero, and Bol and a foundation from UGM & ITB. He now mentors elite engineers landing roles at Amazon, Netflix, and NVIDIA. In his free time he pursue his curiosity in legal studies at Universitas Sibermu Yogyakarta." ]
+                        [ text "Abdu is a tech leader with experience at Microsoft, Delivery Hero, and Bol and a foundation from UGM & ITB. He now mentors elite engineers landing roles at Amazon, Meta, Netflix, and NVIDIA. In his free time he pursue his curiosity in legal studies at Universitas Sibermu Yogyakarta." ]
                     ]
                 ]
             ]
